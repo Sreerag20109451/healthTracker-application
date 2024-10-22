@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add main class for deployment">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add main class for deployment" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,7 +108,7 @@
       <workItem from="1728991594365" duration="9335000" />
       <workItem from="1729073920602" duration="3043000" />
       <workItem from="1729085428270" duration="2024000" />
-      <workItem from="1729591187979" duration="5384000" />
+      <workItem from="1729591187979" duration="5769000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />
