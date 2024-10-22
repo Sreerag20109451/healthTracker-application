@@ -21,8 +21,12 @@ class JavalinConfig {
 
         app.get("/api/users", controller::getAllUsers)
         app.get("/api/users/{id}", controller :: getUserById)
+        app.get("/api/users/email/{email}", controller :: findUserByEmail)
+
+
         app.post("/api/users", controller::createUser)
         app.put("/api/users/{id}", controller::updateUser)
+        app.delete("/api/users/{id}", controller::deleteUser)
 
 
     }
@@ -31,7 +35,7 @@ class JavalinConfig {
         val remotePort = System.getenv("PORT")
         return if (remotePort != null) {
             Integer.parseInt(remotePort)
-        } else 8080
+        } else 8081
     }
 
 }
