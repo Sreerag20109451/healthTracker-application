@@ -9,12 +9,8 @@ import org.agileSoftDev.domain.repository.UserDAO
 import org.postgresql.util.PSQLException
 
 class healthTrackerController {
-
-
     private val userDAO = UserDAO()
-
     fun getAllUsers(ctx: Context)  {
-
             var users = userDAO.allUsers()
             if(users != null) ctx.json(200).json(users)
             else ctx.status(204).json(mapOf("message" to "No users found"))
