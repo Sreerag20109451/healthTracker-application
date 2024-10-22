@@ -10,7 +10,7 @@ class JavalinConfig {
 
     fun startJavalinInstance() : Javalin{
 
-        val app = Javalin.create().apply {  }.start(8080)
+        val app = Javalin.create().apply {  }.start(getRemoteAssignedPort())
         registerRoutes(app)
 
         return  app
@@ -25,6 +25,13 @@ class JavalinConfig {
         app.put("/api/users/{id}", controller::updateUser)
 
 
+    }
+
+    private fun getRemoteAssignedPort(): Int {
+        val remotePort = System.getenv("PORT")
+        return if (remotePort != null) {
+            Integer.parseInt(remotePort)
+        } else 8080
     }
 
 }
