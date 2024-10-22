@@ -3,6 +3,7 @@ package org.agileSoftDev.domain.repository
 import org.agileSoftDev.domain.User
 import org.agileSoftDev.domain.db.Users
 import org.agileSoftDev.utills.mapToUser
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 
@@ -22,8 +23,18 @@ class UserDAO {
     }
 
     fun getUserById(id: Int): User? {
+      var user : User? = null
 
-        return null
+      transaction {
+
+          Users.selectAll().where{Users.id eq id}.map{
+
+
+              user = mapToUser(it)
+
+          }
+      }
+        return  user
 
     }
 

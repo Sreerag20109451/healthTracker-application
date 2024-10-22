@@ -34,9 +34,11 @@ class healthTrackerController {
 
     fun getUserById(ctx: Context) {
 
+
         val user = userDAO.getUserById(ctx.pathParam("id").toInt())
         if (user != null) ctx.status(200).json(user)
         else ctx.status(400).json(mapOf("message" to "Error, No user found"))
+
 
 
     }

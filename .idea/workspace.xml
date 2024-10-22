@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/DBConfig.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/db/Users.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/utills/utils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/App.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/healthTrackerController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/healthTrackerController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/UserDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/UserDAO.kt" afterDir="false" />
     </list>
@@ -117,6 +112,8 @@
       <workItem from="1728549254477" duration="1397000" />
       <workItem from="1728991594365" duration="9335000" />
       <workItem from="1729073920602" duration="3043000" />
+      <workItem from="1729085428270" duration="2024000" />
+      <workItem from="1729591187979" duration="4058000" />
     </task>
     <servers />
   </component>
