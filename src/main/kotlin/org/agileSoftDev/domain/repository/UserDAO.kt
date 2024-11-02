@@ -12,7 +12,7 @@ import org.jetbrains.exposed.sql.update
 
 
 class UserDAO {
-    fun allUsers(): ArrayList<User>? {
+    fun allUsers(): ArrayList<User> {
         val userList: ArrayList<User> = arrayListOf()
         transaction {
             Users.selectAll().map {
