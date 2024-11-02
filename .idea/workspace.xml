@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/helpers/FIxtures.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/UserDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/UserDAO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/HelloTest.kt" beforeDir="false" />
-    </list>
+    <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +52,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "JUnit.userDAOtest.executor": "Coverage",
+    "JUnit.test_coverage_report.executor": "Coverage",
+    "JUnit.userDAOtest.executor": "Run",
     "Kotlin.AppKt.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.healthTracker [validate].executor": "Run",
@@ -142,7 +137,7 @@
       <workItem from="1729681249294" duration="3415000" />
       <workItem from="1730472921605" duration="1403000" />
       <workItem from="1730474354830" duration="2301000" />
-      <workItem from="1730543948529" duration="1994000" />
+      <workItem from="1730543948529" duration="2304000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />
@@ -189,5 +184,14 @@
     <MESSAGE value="Add main class for deployment" />
     <MESSAGE value="Add remaining CRUD operations to the User Model" />
     <option name="LAST_COMMIT_MESSAGE" value="Add remaining CRUD operations to the User Model" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/healthTracker_application$userDAOtest.ic" NAME="userDAOtest Coverage Results" MODIFIED="1730545943405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.agileSoftDev.repositiries.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/healthTracker_application$test_coverage_report.ic" NAME="test_coverage_report Coverage Results" MODIFIED="1730546080908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.agileSoftDev.repositiries.*</FILTER>
+      <FILTER>org.agileSoftDev.*</FILTER>
+    </SUITE>
   </component>
 </project>
