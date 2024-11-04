@@ -127,7 +127,8 @@ class userDAOtest {
                 var userDAO = populateUserTable()
                 var size = userDAO.allUsers().size
 
-                var user = User(id = 34, name = "my_name", email = "myEmail@email.com")
+                var user = User(id = 34, name = "my_name", email = "myEmail@email.com", role = "user")
+
                 userDAO.updateUser(45, user)
                 assertEquals(size, userDAO.allUsers().size)
             }
@@ -139,7 +140,7 @@ class userDAOtest {
          var userDAO = populateUserTable()
          var size = userDAO.allUsers().size
 
-         var user = User(user1.id, name = "UpdateName", email = "UpdateEmail@email.com")
+         var user = User(user1.id, name = "UpdateName", email = "UpdateEmail@email.com", role = "user")
 
          userDAO.updateUser(user1.id, user)
 
@@ -148,7 +149,7 @@ class userDAOtest {
      }}
     }
 
-    internal fun populateUserTable(): UserDAO {
+     fun populateUserTable(): UserDAO {
         SchemaUtils.create(Users)
         val userDAO = UserDAO()
         userDAO.addUser(user1)
