@@ -12,6 +12,22 @@ import org.jetbrains.exposed.sql.update
 
 
 class UserDAO {
+
+
+
+    fun generateLastId(): Int {
+        var lastID: Long = 0
+        transaction {
+            lastID = Users.selectAll().count()
+        }
+
+        return lastID.toInt()
+
+    }
+
+
+
+
     fun allUsers(): ArrayList<User> {
         val userList: ArrayList<User> = arrayListOf()
         transaction {
@@ -36,6 +52,7 @@ class UserDAO {
             Users.insert {
                 it[name] = user.name
                 it[email] = user.email
+                it[role] = user.role
             }
         }
 

@@ -1,7 +1,9 @@
 package org.agileSoftDev.config
 
 import io.javalin.Javalin
+import io.javalin.json.JavalinJackson
 import org.agileSoftDev.controller.healthTrackerController
+import org.agileSoftDev.utills.jsonObjectMapper
 
 class JavalinConfig {
 
@@ -10,7 +12,7 @@ class JavalinConfig {
 
     fun startJavalinInstance() : Javalin{
 
-        val app = Javalin.create().apply {  }.start(getRemoteAssignedPort())
+        val app = Javalin.create{ it.jsonMapper(JavalinJackson(jsonObjectMapper()))}.apply {  }.start(getRemoteAssignedPort())
         registerRoutes(app)
 
         return  app
@@ -28,6 +30,11 @@ class JavalinConfig {
         app.put("/api/users/{id}", controller::updateUser)
         app.delete("/api/users/{id}", controller::deleteUser)
 
+        app.get("/api/activities", controller:: getAllActivities)
+        app.post("/api/activities", controller::addactivity)
+        app.get("api/users/{id}/activities",controller:: getActivityByUser)
+        app.delete("api/users/{id}/activities/{actId}",controller:: deleteActivityByUser)
+
 
     }
 
@@ -37,5 +44,8 @@ class JavalinConfig {
             Integer.parseInt(remotePort)
         } else 8081
     }
+
+
+
 
 }
