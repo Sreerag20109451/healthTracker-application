@@ -25,8 +25,6 @@ class JavalinConfig {
         registerRoutes(app)
         return  app
     }
-
-
     fun adminAndSameUserPrivilegeCheck(ctx: Context, function: (Context) -> Unit) {
             if(!accessController.CheckAdminRole(ctx)){
                 if (!accessController.checkSameUserloggedIn(ctx)) {
@@ -40,36 +38,26 @@ class JavalinConfig {
                 ctx.status(403).json(mapOf("message" to "Access denied!"))
             }
     }
-
     fun adminOnlyPrivilegeCheck(ctx: Context, function: (Context) -> Unit) {
 
         if(accessController.CheckAdminRole(ctx)) function(ctx)
         else ctx.status(403).json(mapOf("message" to "Access denied!"))
-
-
     }
-
     fun registerRoutes(app: Javalin) {
-
         //Login and LogOut
         app.post("/api/logout", authenticationController::logout)
         app.post("/api/login", authenticationController::login)
-
         //User API Endpoints
-
         //No privilege
         app.post("/api/users", controller::createUser)
-
         //OnlyAdminPrivileges
         app.get("/api/users"){ctx ->
             if(jwtObj.verifyTokens(ctx)) adminOnlyPrivilegeCheck(ctx,controller::getAllUsers)
             else ctx.status(403).json(mapOf("message" to "Authentication error, invalid token!"))
-
         }
         app.get("/api/users/email/{email}"){ctx ->
             if(jwtObj.verifyTokens(ctx)) adminOnlyPrivilegeCheck(ctx,controller::findUserByEmail)
             else ctx.status(403).json(mapOf("message" to "Authentication error, invalid token!"))
-
         }
         //Admin and Same user privileges (Always verify token)
         app.get("/api/users/{userID}"){ ctx ->

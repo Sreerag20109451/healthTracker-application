@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AccessManagementController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthenticationController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/utills/Bcryptutils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/utills/JWTutils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/utills/cookies/CookieStore.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/healthTrackerController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/healthTrackerController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/User.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/db/Users.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/db/Users.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/UserDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/UserDAO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/utills/utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/utills/utils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/helpers/FIxtures.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/helpers/FIxtures.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +155,7 @@
       <workItem from="1730555796216" duration="8180000" />
       <workItem from="1730632637053" duration="6743000" />
       <workItem from="1730797579056" duration="6026000" />
-      <workItem from="1730825899647" duration="3806000" />
+      <workItem from="1730825899647" duration="4794000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />
