@@ -2,7 +2,7 @@ package org.agileSoftDev.domain.repository
 
 import org.agileSoftDev.domain.User
 import org.agileSoftDev.domain.db.Users
-import org.agileSoftDev.utills.Bcryptutils
+import org.agileSoftDev.utills.AuthenticationUtils.Bcryptutils
 import org.agileSoftDev.utills.mapToUser
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.deleteWhere
@@ -10,25 +10,22 @@ import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.jetbrains.exposed.sql.update
-import org.postgresql.util.PSQLException
 
 
 class UserDAO {
-
-
-
-
     private val BcryptObj = Bcryptutils()
     fun verifyPassword(user: User, password: String): Boolean {
         return BcryptObj.verifyPassword(password,user.password)
     }
-    fun allUsers(): ArrayList<User> {
+    fun allUsers(): List<User> {
         val userList: ArrayList<User> = arrayListOf()
         transaction {
             Users.selectAll().map {
                 userList.add(mapToUser(it)) }
         }
-        return userList
+
+        var userlist = userList.filter { it -> it.role == "user" }
+        return userlist
     }
     fun getUserById(id: Int): User? {
       var user : User? = null

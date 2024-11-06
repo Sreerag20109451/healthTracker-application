@@ -5,7 +5,7 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import io.javalin.http.Context
 import org.agileSoftDev.domain.User
 import org.agileSoftDev.domain.repository.UserDAO
-import org.agileSoftDev.utills.JWTutils
+import org.agileSoftDev.utills.AuthenticationUtils.JWTutils
 import org.agileSoftDev.utills.cookies.CookieStore
 
 class AuthenticationController {
@@ -23,12 +23,11 @@ class AuthenticationController {
                 var user = userDAO.loginUser(email,password)
                 if(user == null)  ctx.status(403).json(mapOf("message" to "Invalid email or password"))
                 else{
-                    val token  = jwtObj.generateToken(user!!)
-
+                    val token  = jwtObj.generateToken(user)
                     println(user)
                     println(user.role)
                     cookieStore.saveToCookieStore(ctx, User(user.id, user.name,user.email,user.password,user.role))
-                    ctx.status(200).json(mapOf(Pair("message" , "${user?.name} is logged in"),Pair("token",token)))
+                    ctx.status(200).json(mapOf(Pair("message" , "${user.name} is logged in"),Pair("token",token)))
                 }
             }
             else{

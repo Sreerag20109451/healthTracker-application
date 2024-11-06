@@ -1,7 +1,6 @@
-package org.agileSoftDev.utills
+package org.agileSoftDev.utills.AuthenticationUtils
 
 import at.favre.lib.crypto.bcrypt.BCrypt
-import io.javalin.http.servlet.getBasicAuthCredentials
 
 class Bcryptutils {
 
