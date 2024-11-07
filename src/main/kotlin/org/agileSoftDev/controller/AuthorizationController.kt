@@ -1,6 +1,7 @@
 package org.agileSoftDev.controller
 
 import io.javalin.http.Context
+import org.agileSoftDev.domain.User
 import org.agileSoftDev.utills.cookies.CookieStore
 
 class AuthorizationController {
@@ -39,14 +40,20 @@ class AuthorizationController {
             }
         }
         else{
-            ctx.status(403).json(mapOf("message" to "Access denied!"))
+            function(ctx)
         }
     }
      fun adminOnlyPrivilegeCheck(ctx: Context, function: (Context) -> Unit) {
 
-        if(!CheckAdminRole(ctx)) function(ctx)
+        if(CheckAdminRole(ctx)) function(ctx)
         else ctx.status(403).json(mapOf("message" to "Access denied!"))
     }
+
+    fun userIsNotAdmin(user: User): Boolean{
+
+        return  user.role != "admin"
+    }
+
 }
 
 

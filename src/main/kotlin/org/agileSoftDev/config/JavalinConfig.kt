@@ -3,10 +3,7 @@ package org.agileSoftDev.config
 import io.javalin.Javalin
 import io.javalin.http.Context
 import io.javalin.json.JavalinJackson
-import org.agileSoftDev.controller.ActivityController
-import org.agileSoftDev.controller.AuthorizationController
-import org.agileSoftDev.controller.AuthenticationController
-import org.agileSoftDev.controller.healthTrackerController
+import org.agileSoftDev.controller.*
 import org.agileSoftDev.utills.AuthenticationUtils.JWTutils
 import org.agileSoftDev.utills.AuthenticationUtils.jsonObjectMapper
 import org.postgresql.util.PSQLException
@@ -17,6 +14,8 @@ class JavalinConfig {
     private val accessController =  AuthorizationController()
     private val authenticationController = AuthenticationController()
     private val activityController =  ActivityController()
+    private val healthIndicatorController = HealthIndicatorController()
+
     fun startJavalinInstance() : Javalin{
         val app = Javalin.create{ it.jsonMapper(JavalinJackson(jsonObjectMapper()))}.apply {  }.start(getRemoteAssignedPort())
         registerRoutes(app)
@@ -75,6 +74,24 @@ class JavalinConfig {
         app.delete("api/users/{userID}/activities/{actId}"){ ctx ->
             if(jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(ctx,activityController::deleteActivityByUser)
             else ctx.status(403).json(mapOf("message" to "Authentication Error, invalid token"))
+        }
+
+        //HealthIndicators
+
+        //AdminOnly
+
+
+        //AdminAndSameUserPrivilege
+
+        app.get("/api/users/{userID}/healthindicators"){
+            ctx ->
+            if(jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(ctx,healthIndicatorController::getHealthIndicatorsByUser)
+
+        }
+        app.post("/api/users/{userID}/healthindicators"){
+                ctx ->
+            if(jwtObj.verifyTokens(ctx)) accessController.adminOnlyPrivilegeCheck(ctx,healthIndicatorController::addIndicatorsforUser)
+
         }
 
         //Errors and exceptions
