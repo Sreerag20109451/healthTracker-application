@@ -1,10 +1,9 @@
-package org.agileSoftDev.utills
+package org.agileSoftDev.utills.AuthenticationUtils
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.JWTCreator
 import com.auth0.jwt.algorithms.Algorithm
 import io.javalin.http.Context
-import javalinjwt.JWTGenerator
 import javalinjwt.JWTProvider
 import javalinjwt.JavalinJWT
 import org.agileSoftDev.domain.User

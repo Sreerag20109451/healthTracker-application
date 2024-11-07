@@ -1,4 +1,4 @@
-package org.agileSoftDev.utills
+package org.agileSoftDev.utills.AuthenticationUtils
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
