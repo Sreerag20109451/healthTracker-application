@@ -4,9 +4,11 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.joda.JodaModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.agileSoftDev.domain.Activity
+import org.agileSoftDev.domain.Diet
 import org.agileSoftDev.domain.HealthIndicator
 import org.agileSoftDev.domain.User
 import org.agileSoftDev.domain.db.Activities
+import org.agileSoftDev.domain.db.Diets
 import org.agileSoftDev.domain.db.HealthIndicators
 import org.agileSoftDev.domain.db.Users
 import org.agileSoftDev.utills.Enums.UserRoles
@@ -31,6 +33,14 @@ fun mapToActivities(it: ResultRow): Activity {
     return Activity(id,description,duration,calories,started,userId)
 }
 
+fun mapToDiet(it: ResultRow): Diet {
+    val dietid = it[Diets.dietid]
+    val dietname = it[Diets.dietname]
+    val content = it[Diets.content]
+
+    return Diet(dietid,dietname,content)
+}
+
 fun mapToHealthIndicator(it: ResultRow): HealthIndicator? {
 
     val indicatorid =it[HealthIndicators.indicatorid]
@@ -51,6 +61,19 @@ fun mapToHealthIndicator(it: ResultRow): HealthIndicator? {
 
 }
 
+fun selectDistinct(arrayList: ArrayList<String>) : ArrayList<String>{
+
+    val distinctItems: ArrayList<String> = arrayListOf()
+    for(item in arrayList){
+        if(!distinctItems.contains(item)){
+            distinctItems.add(item)
+        }
+    }
+
+    return distinctItems
+
+
+}
 
 fun writeAsString (func : () -> Any ) :String{
     val mapper = jacksonObjectMapper().registerModules(JodaModule()).configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS,false)

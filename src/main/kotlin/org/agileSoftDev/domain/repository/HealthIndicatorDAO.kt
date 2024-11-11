@@ -2,6 +2,7 @@ package org.agileSoftDev.domain.repository
 
 import org.agileSoftDev.domain.HealthIndicator
 import org.agileSoftDev.domain.db.HealthIndicators
+import org.agileSoftDev.utills.healthIndicators.HealthIndexes
 import org.agileSoftDev.utills.mapToHealthIndicator
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.insert
@@ -10,6 +11,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
 
 class HealthIndicatorDAO {
     private val userDAO = UserDAO()
+    private val healthIndexes =HealthIndexes()
 
     var healthIndicatorFeeder : ArrayList<HealthIndicator> = arrayListOf(
         HealthIndicator(indicatorid = 1, userid = 1, age = 17, height = 178, weight = 67, boxygen = 97, hdl = 40, ldl = 121, ast = 36, alt = 36, gfr = 67  )
@@ -36,11 +38,10 @@ class HealthIndicatorDAO {
     }
 
     fun getHealthIndicatorsByUser(userId: Int): HealthIndicator? {
-
+        println("ksdnkjdn")
         val user = userDAO.getUserById(userId)
         var healthIndicators: HealthIndicator? = null
         if(user == null) return null
-        if( user.role == "admin'") return null
         else{
             transaction {
 
@@ -76,6 +77,24 @@ class HealthIndicatorDAO {
         }
 
     }
+
+    fun nonNullIndicators(healthIndicator: HealthIndicator) : MutableMap<String,Int>{
+
+
+
+        var mapUser : MutableMap<String, Int > = mutableMapOf()
+        if(healthIndicator.hdl != null) mapUser.set("hdl", healthIndicator.hdl!!)
+        if (healthIndicator.ldl != null) mapUser.set("ldl", healthIndicator.ldl!!)
+        if(healthIndicator.alt != null) mapUser.set("alt", healthIndicator.alt!!)
+        if(healthIndicator.ast != null) mapUser.set("ast", healthIndicator.ast!!)
+        if(healthIndicator.gfr != null) mapUser.set("gfr", healthIndicator.gfr!!)
+
+        return mapUser
+
+
+
+    }
+
 
 
 }
