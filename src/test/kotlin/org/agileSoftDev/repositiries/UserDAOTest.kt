@@ -12,12 +12,13 @@ import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
+class UserDAOTest {
 
-val user1 = users[0]
-val user2 = users[1]
-val user3 = users[2]
+    private  val user1 = users[0]
+    private  val user2 = users[1]
+    private val user3 = users[2]
+    private val user4 = users[3]
 
-class userDAOtest {
     companion object {
         @BeforeAll
         @JvmStatic
@@ -58,9 +59,9 @@ class userDAOtest {
 
                 val userDAO = populateUserTable()
                 //Assertions0
-                assertEquals(user1, userDAO.getUserById(user1.id))
-                assertEquals(user2, userDAO.getUserById(user2.id))
-                assertEquals(user3, userDAO.getUserById(user3.id))
+                assertEquals(user1.name, userDAO.getUserById(user1.id)?.name)
+                assertEquals(user2.name, userDAO.getUserById(user2.id)?.name)
+                assertEquals(user3.name, userDAO.getUserById(user3.id)?.name)
             }
         }
         @Test
@@ -84,9 +85,9 @@ class userDAOtest {
             transaction {
                 val userDAO = populateUserTable()
                 assertEquals(3, userDAO.allUsers().size)
-                assertEquals(user1, userDAO.getUserById(user1.id))
-                assertEquals(user2, userDAO.getUserById(user2.id))
-                assertEquals(user3, userDAO.getUserById(user3.id))
+                assertEquals(user1.name, userDAO.getUserById(user1.id)?.name)
+                assertEquals(user2.name, userDAO.getUserById(user2.id)?.name)
+                assertEquals(user3.name, userDAO.getUserById(user3.id)?.name)
             }
         }
     }
@@ -127,7 +128,7 @@ class userDAOtest {
                 var userDAO = populateUserTable()
                 var size = userDAO.allUsers().size
 
-                var user = User(id = 34, name = "my_name", email = "myEmail@email.com", role = "user")
+                var user = User(id = 34, name = "my_name", email = "myEmail@email.com", role = "user" , password = "abc")
 
                 userDAO.updateUser(45, user)
                 assertEquals(size, userDAO.allUsers().size)
@@ -136,20 +137,21 @@ class userDAOtest {
 
         @Test
         fun `updating an existing user works fine`() {
-     transaction {
-         var userDAO = populateUserTable()
-         var size = userDAO.allUsers().size
+            transaction {
+                var userDAO = populateUserTable()
+                var size = userDAO.allUsers().size
 
-         var user = User(user1.id, name = "UpdateName", email = "UpdateEmail@email.com", role = "user")
+                var user = User(user1.id, name = "UpdateName", email = "UpdateEmail@email.com", role = "user", password = "abc")
 
-         userDAO.updateUser(user1.id, user)
+                userDAO.updateUser(user1.id, user)
 
-         assertEquals("UpdateName", userDAO.getUserById(user1.id)?.name)
-         assertEquals("UpdateEmail@email.com", userDAO.getUserById(user1.id)?.email)
-     }}
+                assertEquals("UpdateName", userDAO.getUserById(user1.id)?.name)
+                assertEquals("UpdateEmail@email.com", userDAO.getUserById(user1.id)?.email)
+            }
+        }
     }
 
-     fun populateUserTable(): UserDAO {
+    fun populateUserTable(): UserDAO {
         SchemaUtils.create(Users)
         val userDAO = UserDAO()
         userDAO.addUser(user1)

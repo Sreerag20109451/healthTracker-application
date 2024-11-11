@@ -38,7 +38,6 @@ class HealthIndicatorDAO {
     }
 
     fun getHealthIndicatorsByUser(userId: Int): HealthIndicator? {
-        println("ksdnkjdn")
         val user = userDAO.getUserById(userId)
         var healthIndicators: HealthIndicator? = null
         if(user == null) return null
@@ -79,8 +78,6 @@ class HealthIndicatorDAO {
     }
 
     fun nonNullIndicators(healthIndicator: HealthIndicator) : MutableMap<String,Int>{
-
-
 
         var mapUser : MutableMap<String, Int > = mutableMapOf()
         if(healthIndicator.hdl != null) mapUser.set("hdl", healthIndicator.hdl!!)

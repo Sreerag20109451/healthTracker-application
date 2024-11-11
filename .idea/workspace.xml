@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model" />
+    <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model">
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/repositiries/HealthRisksDAOTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/repositiries/UserDAOTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/HealthRisk.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/HealthRisk.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/db/Diets.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/db/Diets.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/db/HealthDepartments.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/db/HealthDepartments.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/HealthIndicatorDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/HealthIndicatorDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/HealthRiskDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/HealthRiskDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/utills/Healthrisks/Healthriskfeeder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/utills/Healthrisks/Healthriskfeeder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/helpers/FIxtures.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/helpers/FIxtures.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/repositiries/healthIndicatorDAOTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/repositiries/healthIndicatorDAOTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/repositiries/userDAOtest.kt" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="healthindicators" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,17 +69,20 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.HealthRisksDAOTest.executor": "Coverage",
     "JUnit.activityDAOtest.executor": "Run",
+    "JUnit.healthIndicatorDAOTest.executor": "Coverage",
     "JUnit.test_coverage_report.executor": "Run",
+    "JUnit.userDAOtest$UpdateUser.executor": "Coverage",
     "JUnit.userDAOtest.executor": "Run",
-    "Kotlin.AppKt.executor": "Run",
+    "Kotlin.AppKt.executor": "Debug",
     "Kotlin.HealthIndicatorDAOKt.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.healthTracker [validate].executor": "Run",
     "Maven.healthTracker [verify].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "unittest2",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -89,8 +105,8 @@
       <recent name="org.agileSoftDev.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.AppKt">
-    <configuration name="test_coverage_report" type="JUnit" factoryName="JUnit" temporary="true">
+  <component name="RunManager" selected="JUnit.UserDAOTest">
+    <configuration name="UserDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
         <pattern>
@@ -100,6 +116,26 @@
         <pattern>
           <option name="PATTERN" value="org.agileSoftDev.*" />
           <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.repositiries" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.repositiries.UserDAOTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="userDAOtest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthTracker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.agileSoftDev.repositiries.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="org.agileSoftDev.*" />
+          <option name="ENABLED" value="false" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.agileSoftDev.repositiries" />
@@ -113,16 +149,16 @@
     <configuration name="AppKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.AppKt" />
       <module name="healthTracker" />
+      <shortenClasspath name="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserDAOTest" />
+        <item itemvalue="JUnit.userDAOtest" />
         <item itemvalue="Kotlin.AppKt" />
-        <item itemvalue="JUnit.test_coverage_report" />
-        <item itemvalue="Kotlin.AppKt" />
-        <item itemvalue="JUnit.test_coverage_report" />
         <item itemvalue="Kotlin.AppKt" />
       </list>
     </recent_temporary>
@@ -166,6 +202,8 @@
       <workItem from="1730983134087" duration="2030000" />
       <workItem from="1730985176914" duration="2549000" />
       <workItem from="1730989985255" duration="861000" />
+      <workItem from="1731339543055" duration="3377000" />
+      <workItem from="1731342930704" duration="1001000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />
@@ -217,12 +255,23 @@
     <option name="LAST_COMMIT_MESSAGE" value="Add remaining CRUD operations to the User Model" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/healthTracker_application$userDAOtest.ic" NAME="userDAOtest Coverage Results" MODIFIED="1730545943405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>org.agileSoftDev.repositiries.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/healthTracker_application$test_coverage_report.ic" NAME="test_coverage_report Coverage Results" MODIFIED="1730546080908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/healthTracker_application$userDAOtest.ic" NAME="userDAOtest Coverage Results" MODIFIED="1731343576976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.agileSoftDev.repositiries.*</FILTER>
       <FILTER>org.agileSoftDev.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/healthTracker_application$healthIndicatorDAOTest.ic" NAME="healthIndicatorDAOTest Coverage Results" MODIFIED="1731342141728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.agileSoftDev.repositiries.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/healthTracker_application$HealthRisksDAOTest.ic" NAME="HealthRisksDAOTest Coverage Results" MODIFIED="1731343464900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.agileSoftDev.repositiries.*</FILTER>
+      <FILTER>org.agileSoftDev.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/healthTracker_application$test_coverage_report.ic" NAME="test_coverage_report Coverage Results" MODIFIED="1731342279692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.agileSoftDev.repositiries.*</FILTER>
+      <FILTER>org.agileSoftDev.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/healthTracker_application$userDAOtest_UpdateUser.ic" NAME="userDAOtest$UpdateUser Coverage Results" MODIFIED="1731342340824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.agileSoftDev.repositiries.*</FILTER>
     </SUITE>
   </component>
 </project>

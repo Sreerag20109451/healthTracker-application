@@ -7,6 +7,6 @@ object HealthDepartments: Table("healthdepartments") {
     val deptid = integer("deptid").autoIncrement()
     val dept = varchar("dept", 50)
 
-    override val primaryKey : PrimaryKey = PrimaryKey(deptid)
+    override val primaryKey : PrimaryKey = PrimaryKey(dept)
 
 }
