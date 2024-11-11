@@ -21,7 +21,7 @@ class healthTrackerController {
     fun getAllUsers(ctx: Context)  {      //AdminPrivilege+ Authentication required
             var users = userDAO.allUsers()
             if(users != null) ctx.json(200).json(mapOf(Pair("message","success"),Pair("data", users)))
-            else ctx.status(204).json(mapOf("message" to "No users found"))
+            else ctx.status(200).json(mapOf("message" to "No users found"))
     }
     fun getUserById(ctx: Context) {   //AdminPrivilege + Authentication required
         val user = userDAO.getUserById(ctx.pathParam("userID").toInt())
@@ -55,7 +55,7 @@ class healthTrackerController {
                userDAO.deleteUserById(userID)
                ctx.status(200).json(mapOf("message" to "User deleted"))
            }
-           else ctx.status(400).json(mapOf("message" to "Error, User not found"))
+           else ctx.status(404).json(mapOf("message" to "Error, User not found"))
        }
        catch (e : PSQLException) {
            ctx.status(500).json(mapOf("message" to "User deleteion unscuccesfull"))
@@ -72,7 +72,7 @@ class healthTrackerController {
             }
         }
         catch (e : PSQLException) {
-            ctx.status(500).json(mapOf("message" to "User updation unsuccesful, ${e.message}"))
+            ctx.status(404).json(mapOf("message" to "User updation unsuccesful, ${e.message}"))
         }
     }
 
