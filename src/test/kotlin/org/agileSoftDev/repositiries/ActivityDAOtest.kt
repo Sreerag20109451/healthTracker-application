@@ -14,8 +14,7 @@ import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class activityDAOtest {
-    private var userDAOtest = userDAOtest()
+class ActivityDAOtest {
     companion object {
         @BeforeAll
         @JvmStatic
