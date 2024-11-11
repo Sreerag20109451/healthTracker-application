@@ -1,4 +1,4 @@
 package org.agileSoftDev.domain.db
 
-object HealthRisks {
+object HealthDepartments {
 }
