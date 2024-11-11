@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/helpers/ServerContainer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/ReadUser.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/healthTrackerController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/healthTrackerController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/User.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/UserDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/UserDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserController.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +24,7 @@
         <option value="Kotlin Object" />
         <option value="Class" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>
@@ -62,37 +63,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.HealthRisksDAOTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.UserController.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserDAOTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.activityDAOtest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.healthIndicatorDAOTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.test_coverage_report.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.userDAOtest$UpdateUser.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.userDAOtest.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.AppKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.HealthIndicatorDAOKt.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.healthTracker [validate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.healthTracker [verify].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.HealthRisksDAOTest.executor": "Coverage",
+    "JUnit.UserController$UserAddOperations.executor": "Run",
+    "JUnit.UserController$UserDeletionOperations.executor": "Run",
+    "JUnit.UserController$UserUpdateOperations.executor": "Run",
+    "JUnit.UserController.executor": "Run",
+    "JUnit.UserController.update a non existing user and return a 404 error.executor": "Run",
+    "JUnit.UserDAOTest.executor": "Coverage",
+    "JUnit.activityDAOtest.executor": "Run",
+    "JUnit.healthIndicatorDAOTest.executor": "Coverage",
+    "JUnit.test_coverage_report.executor": "Run",
+    "JUnit.userDAOtest$UpdateUser.executor": "Coverage",
+    "JUnit.userDAOtest.executor": "Run",
+    "Kotlin.AppKt.executor": "Run",
+    "Kotlin.HealthIndicatorDAOKt.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.healthTracker [validate].executor": "Run",
+    "Maven.healthTracker [verify].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "integration__testing",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/utills/AuthenticationUtils" />
@@ -102,43 +107,64 @@
       <recent name="org.agileSoftDev.domain" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="UserDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UserController$UserDeletionOperations">
+    <configuration name="UserController$UserAddOperations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.agileSoftDev.repositiries.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="org.agileSoftDev.*" />
+          <option name="PATTERN" value="org.agileSoftDev.testcontroller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.agileSoftDev.repositiries" />
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.repositiries.UserDAOTest" />
-      <option name="METHOD_NAME" value="" />
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.UserController" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.UserController$UserAddOperations" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="userDAOtest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserController$UserDeletionOperations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.agileSoftDev.repositiries.*" />
+          <option name="PATTERN" value="org.agileSoftDev.testcontroller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.UserController" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.UserController$UserDeletionOperations" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserController$UserUpdateOperations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthTracker" />
+      <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.agileSoftDev.*" />
-          <option name="ENABLED" value="false" />
+          <option name="PATTERN" value="org.agileSoftDev.testcontroller.*" />
+          <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.agileSoftDev.repositiries" />
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.repositiries.userDAOtest" />
-      <option name="METHOD_NAME" value="" />
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.UserController" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.UserController$UserUpdateOperations" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserController.update a non existing user and return a 404 error" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthTracker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.agileSoftDev.testcontroller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.UserController" />
+      <option name="METHOD_NAME" value="update a non existing user and return a 404 error" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -153,9 +179,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.AppKt" />
-        <item itemvalue="JUnit.UserDAOTest" />
-        <item itemvalue="JUnit.userDAOtest" />
+        <item itemvalue="JUnit.UserController$UserDeletionOperations" />
+        <item itemvalue="JUnit.UserController$UserAddOperations" />
+        <item itemvalue="JUnit.UserController$UserUpdateOperations" />
+        <item itemvalue="JUnit.UserController.update a non existing user and return a 404 error" />
         <item itemvalue="Kotlin.AppKt" />
       </list>
     </recent_temporary>
@@ -202,7 +229,7 @@
       <workItem from="1731339543055" duration="3377000" />
       <workItem from="1731342930704" duration="2544000" />
       <workItem from="1731348473037" duration="260000" />
-      <workItem from="1731349920041" duration="1748000" />
+      <workItem from="1731349920041" duration="6533000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />
@@ -252,6 +279,21 @@
     <MESSAGE value="Add main class for deployment" />
     <MESSAGE value="Add remaining CRUD operations to the User Model" />
     <option name="LAST_COMMIT_MESSAGE" value="Add remaining CRUD operations to the User Model" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserController.kt</url>
+          <line>117</line>
+          <properties class="org.agileSoftDev.testcontroller.UserController.UserUpdateOperations" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/healthTracker_application$userDAOtest.ic" NAME="userDAOtest Coverage Results" MODIFIED="1731343576976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
