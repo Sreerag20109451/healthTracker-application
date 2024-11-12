@@ -64,10 +64,6 @@ class JavalinConfig {
         }
 
         //AdminAndSameUserPrivilege
-        app.get("/api/users/{userID}/getrisks"){ ctx ->
-            if(jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(ctx,healthRiskController::getRisks)
-            else ctx.status(401).json(mapOf("message" to "Authentication Error, invalid token"))
-        }
 
         //Admin and Same user privilege
         app.post("/api/users/{userID}/activities"){ ctx ->
@@ -90,12 +86,6 @@ class JavalinConfig {
 
         //AdminAndSameUserPrivilege
 
-        app.get("/api/users/{userID}/getdiets"){
-                ctx ->
-            if(jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(ctx,healthRiskController::suggestDiets)
-            else ctx.status(401).json(mapOf("message" to "Authentication Error, invalid token"))
-
-        }
 
         app.get("/api/users/{userID}/healthindicators"){
                 ctx ->
@@ -106,6 +96,25 @@ class JavalinConfig {
         app.post("/api/users/{userID}/healthindicators"){
                 ctx ->
             if(jwtObj.verifyTokens(ctx)) accessController.adminOnlyPrivilegeCheck(ctx,healthIndicatorController::addIndicatorsforUser)
+            else ctx.status(401).json(mapOf("message" to "Authentication Error, invalid token"))
+
+        }
+
+        //Risks
+
+        //AdminAndSameUserPrivilege
+
+        app.get("/api/users/{userID}/getrisks"){ ctx ->
+            if(jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(ctx,healthRiskController::getRisks)
+            else ctx.status(401).json(mapOf("message" to "Authentication Error, invalid token"))
+        }
+
+
+        //Diets
+
+        app.get("/api/users/{userID}/getdiets"){
+                ctx ->
+            if(jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(ctx,healthRiskController::suggestDiets)
             else ctx.status(401).json(mapOf("message" to "Authentication Error, invalid token"))
 
         }

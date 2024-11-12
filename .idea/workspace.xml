@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/ReadUser.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/ActivtyControllerTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/healthTrackerController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/healthTrackerController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/User.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/UserDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/UserDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/db/Activities.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/db/Activities.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/db/HealthRisks.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/db/HealthRisks.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/ActivityDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/ActivityDAO.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserController.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +24,8 @@
         <option value="Kotlin File" />
         <option value="Kotlin Object" />
         <option value="Class" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -65,10 +66,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.ActivtyControllerTest$ActivitiesReadOperations.Get activities by user successfullly by an admin user.executor": "Run",
+    "JUnit.ActivtyControllerTest$ActivitiesReadOperations.executor": "Run",
+    "JUnit.ActivtyControllerTest$ActivityPostOperations.Add an activity for an existing user by an admin and return 201.executor": "Run",
+    "JUnit.ActivtyControllerTest$ActivityPostOperations.executor": "Run",
+    "JUnit.ActivtyControllerTest$DeleteActivityOperations.executor": "Run",
+    "JUnit.ActivtyControllerTest.executor": "Run",
     "JUnit.HealthRisksDAOTest.executor": "Coverage",
     "JUnit.UserController$UserAddOperations.executor": "Run",
     "JUnit.UserController$UserDeletionOperations.executor": "Run",
     "JUnit.UserController$UserUpdateOperations.executor": "Run",
+    "JUnit.UserController$UserUpdateOperations.update a non existing user and return a 404 error.executor": "Run",
     "JUnit.UserController.executor": "Run",
     "JUnit.UserController.update a non existing user and return a 404 error.executor": "Run",
     "JUnit.UserDAOTest.executor": "Coverage",
@@ -107,8 +115,8 @@
       <recent name="org.agileSoftDev.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserController$UserDeletionOperations">
-    <configuration name="UserController$UserAddOperations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ActivtyControllerTest$DeleteActivityOperations">
+    <configuration name="ActivtyControllerTest$ActivitiesReadOperations.Get activities by user successfullly by an admin user" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
         <pattern>
@@ -116,14 +124,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.UserController" />
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.UserController$UserAddOperations" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.ActivtyControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.ActivtyControllerTest$ActivitiesReadOperations" />
+      <option name="METHOD_NAME" value="Get activities by user successfullly by an admin user" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserController$UserDeletionOperations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ActivtyControllerTest$ActivityPostOperations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
         <pattern>
@@ -131,14 +140,45 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.UserController" />
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.UserController$UserDeletionOperations" />
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.ActivtyControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.ActivtyControllerTest$ActivityPostOperations" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserController$UserUpdateOperations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ActivtyControllerTest$ActivityPostOperations.Add an activity for an existing user by an admin and return 201" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthTracker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.agileSoftDev.testcontroller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.ActivtyControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.ActivtyControllerTest$ActivityPostOperations" />
+      <option name="METHOD_NAME" value="Add an activity for an existing user by an admin and return 201" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ActivtyControllerTest$DeleteActivityOperations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthTracker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.agileSoftDev.testcontroller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.ActivtyControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.ActivtyControllerTest$DeleteActivityOperations" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserController$UserUpdateOperations.update a non existing user and return a 404 error" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
         <pattern>
@@ -148,42 +188,19 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.UserController" />
       <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.UserController$UserUpdateOperations" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserController.update a non existing user and return a 404 error" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="healthTracker" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.agileSoftDev.testcontroller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller" />
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.UserController" />
       <option name="METHOD_NAME" value="update a non existing user and return a 404 error" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.AppKt" />
-      <module name="healthTracker" />
-      <shortenClasspath name="NONE" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserController$UserDeletionOperations" />
-        <item itemvalue="JUnit.UserController$UserAddOperations" />
-        <item itemvalue="JUnit.UserController$UserUpdateOperations" />
-        <item itemvalue="JUnit.UserController.update a non existing user and return a 404 error" />
-        <item itemvalue="Kotlin.AppKt" />
+        <item itemvalue="JUnit.ActivtyControllerTest$DeleteActivityOperations" />
+        <item itemvalue="JUnit.ActivtyControllerTest$ActivityPostOperations" />
+        <item itemvalue="JUnit.ActivtyControllerTest$ActivityPostOperations.Add an activity for an existing user by an admin and return 201" />
+        <item itemvalue="JUnit.UserController$UserUpdateOperations.update a non existing user and return a 404 error" />
+        <item itemvalue="JUnit.ActivtyControllerTest$ActivitiesReadOperations.Get activities by user successfullly by an admin user" />
       </list>
     </recent_temporary>
   </component>
@@ -229,7 +246,9 @@
       <workItem from="1731339543055" duration="3377000" />
       <workItem from="1731342930704" duration="2544000" />
       <workItem from="1731348473037" duration="260000" />
-      <workItem from="1731349920041" duration="6533000" />
+      <workItem from="1731349920041" duration="6962000" />
+      <workItem from="1731409003750" duration="1183000" />
+      <workItem from="1731410355089" duration="6276000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />
@@ -285,12 +304,30 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserController.kt</url>
-          <line>117</line>
+          <line>112</line>
           <properties class="org.agileSoftDev.testcontroller.UserController.UserUpdateOperations" method="&lt;init&gt;">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserController.kt</url>
+          <line>126</line>
+          <properties class="org.agileSoftDev.testcontroller.UserController.UserUpdateOperations" method="update a non existing user and return a 404 error">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/ActivtyControllerTest.kt</url>
+          <line>91</line>
+          <properties class="org.agileSoftDev.testcontroller.ActivtyControllerTest.DeleteActivityOperations" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

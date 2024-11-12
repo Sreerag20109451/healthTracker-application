@@ -8,7 +8,7 @@ import org.jetbrains.exposed.sql.jodatime.datetime
 
 
 object  Activities : Table("Activities") {
-    val id = integer("id")
+    val id = integer("id").autoIncrement()
     var description = varchar("description",100)
     var duration = double("duration")
     var calories = integer("calories")

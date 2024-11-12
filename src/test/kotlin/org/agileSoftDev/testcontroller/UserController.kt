@@ -98,9 +98,6 @@ class UserController {
             var body = "{\"name\":\"testUser\",\"email\":\"myEmail@abc.com\", \"password\":\"abc\",\"role\":\"user\"}"
             var resp = Unirest.post(domain+"/api/users").body(body).asString()
             assertEquals(201,resp.status)
-
-
-
         }
         @Test
         fun `add users with invalid body and get a 400 response coder` (){
@@ -108,8 +105,6 @@ class UserController {
             var body = "{\"name\":\"testUser\",\"email\":\"myEmail@abc.com\", \"password\":\"abc\"}"
             var resp = Unirest.post(domain+"/api/users").body(body).asString()
             assertEquals(400,resp.status)
-
-
         }
 
     }
