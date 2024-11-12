@@ -33,7 +33,7 @@ class HealthRiskController {
         val userID = ctx.pathParam("userID").toInt()
         val risks = riskDAO.getPossibleHealthRisks(userID)
         val diets = riskDAO.getDiet(risks)
-        if(diets == null) ctx.status(200).json(mapOf(Pair("status","success"),Pair("message", "No diets requires"),Pair("data", diets)))
+        if(diets == null) ctx.status(200).json(mapOf(Pair("status","success"),Pair("message", "No diets required"),Pair("data", diets)))
         else ctx.status(200).json(mapOf(Pair("status","success"),Pair("message", "Diets are found"),Pair("data", diets)))
     }
 

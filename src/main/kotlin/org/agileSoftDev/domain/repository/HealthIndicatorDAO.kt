@@ -21,7 +21,6 @@ class HealthIndicatorDAO {
 
         transaction {
             HealthIndicators.insert {
-                it[indicatorid] = healthIndicator.indicatorid
                 it[userid] = userId
                 it[age] = healthIndicator.age
                 it[height] = healthIndicator.height

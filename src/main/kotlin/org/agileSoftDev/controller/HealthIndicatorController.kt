@@ -18,13 +18,12 @@ class HealthIndicatorController {
        val healthIndicator: HealthIndicator = mapper.readValue<HealthIndicator>(ctx.body())
       var userID = ctx.pathParam("userID").toInt()
       var user =  userDAO.getUserById(userID)
-      if(user == null) ctx.status(404).json(mapOf(Pair("status" , "error"),Pair("message" , "User not found"),Pair("data", null)))
+      if(user == null) {
+          ctx.status(404).json(mapOf(Pair("status" , "error"),Pair("message" , "User not found"),Pair("data", null)))
+      }
       else{
-          if(!authorizationController.userIsNotAdmin(user))ctx.status(404).json(mapOf(Pair("status" , "error"),Pair("message" , "Health indicators cannot be added for the user"),Pair("data", null)))
-          else{
-              healthIndicatorDAO.addHealthIndicatorByUser(userID,healthIndicator)
-              ctx.status(200).json(mapOf(Pair("status","success"), Pair("message","Healthindicators added")))
-          }
+          healthIndicatorDAO.addHealthIndicatorByUser(userID,healthIndicator)
+          ctx.status(201).json(mapOf(Pair("status","success"), Pair("message","Healthindicators added")))
       }
 
     }
