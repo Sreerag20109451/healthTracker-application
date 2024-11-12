@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model">
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthrisksControllerTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/HealthIndicatorController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/HealthIndicatorController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/HealthRiskController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/HealthRiskController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/HealthIndicatorDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/HealthIndicatorDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthIndicatorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthIndicatorTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +20,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Object" />
+        <option value="Class" />
+        <option value="Kotlin Data Class" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -59,10 +65,37 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.ActivityDAOtest$ActivitiesDeleteOperations.delete activities by userID.executor": "Run",
+    "JUnit.ActivityDAOtest$ActivitiesDeleteOperations.executor": "Run",
+    "JUnit.ActivtyControllerTest$ActivitiesReadOperations.Get activities by user successfullly by an admin user.executor": "Run",
+    "JUnit.ActivtyControllerTest$ActivitiesReadOperations.executor": "Run",
+    "JUnit.ActivtyControllerTest$ActivityPostOperations.Add an activity for an existing user by an admin and return 201.executor": "Run",
+    "JUnit.ActivtyControllerTest$ActivityPostOperations.executor": "Run",
+    "JUnit.ActivtyControllerTest$DeleteActivityOperations.executor": "Run",
+    "JUnit.ActivtyControllerTest$DeleteActivityOperations.return 200 when deleting a user with the same  normal user.executor": "Run",
+    "JUnit.ActivtyControllerTest.executor": "Run",
+    "JUnit.HealthIndicatorTest$HealthIndicatorsPostOperations.Return 201  when trying to add health indicator by admin user.executor": "Run",
+    "JUnit.HealthIndicatorTest$HealthIndicatorsPostOperations.Return 404  when trying to add health indicator for an invalid user .executor": "Run",
+    "JUnit.HealthIndicatorTest$HealthIndicatorsPostOperations.executor": "Run",
+    "JUnit.HealthIndicatorTest$HealthIndicatorsReadOperations.executor": "Run",
+    "JUnit.HealthIndicatorTest.executor": "Run",
     "JUnit.HealthRisksDAOTest.executor": "Coverage",
+    "JUnit.HealthrisksControllerTest$HealthriskOperations.Get health risks successfully from a unhealthy user.executor": "Run",
+    "JUnit.HealthrisksControllerTest$HealthriskOperations.Get no health risks from a healthy user.executor": "Run",
+    "JUnit.HealthrisksControllerTest$HealthriskOperations.executor": "Run",
+    "JUnit.HealthrisksControllerTest$diets.executor": "Run",
+    "JUnit.HealthrisksControllerTest.executor": "Run",
+    "JUnit.UserController$UserAddOperations.executor": "Run",
+    "JUnit.UserController$UserDeletionOperations.executor": "Run",
+    "JUnit.UserController$UserUpdateOperations.executor": "Run",
+    "JUnit.UserController$UserUpdateOperations.update a non existing user and return a 404 error.executor": "Run",
+    "JUnit.UserController.executor": "Run",
+    "JUnit.UserController.update a non existing user and return a 404 error.executor": "Run",
     "JUnit.UserDAOTest.executor": "Coverage",
     "JUnit.activityDAOtest.executor": "Run",
+    "JUnit.agileSoftDev in healthTracker.executor": "Coverage",
     "JUnit.healthIndicatorDAOTest.executor": "Coverage",
+    "JUnit.repositiries in healthTracker.executor": "Coverage",
     "JUnit.test_coverage_report.executor": "Run",
     "JUnit.userDAOtest$UpdateUser.executor": "Coverage",
     "JUnit.userDAOtest.executor": "Run",
@@ -73,7 +106,7 @@
     "Maven.healthTracker [verify].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "unittest2",
+    "git-widget-placeholder": "integration__testing",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -96,61 +129,84 @@
       <recent name="org.agileSoftDev.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.AppKt">
-    <configuration name="UserDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.agileSoftDev in healthTracker">
+    <configuration name="HealthrisksControllerTest$HealthriskOperations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.agileSoftDev.repositiries.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="org.agileSoftDev.*" />
+          <option name="PATTERN" value="org.agileSoftDev.testcontroller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.agileSoftDev.repositiries" />
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.repositiries.UserDAOTest" />
-      <option name="METHOD_NAME" value="" />
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.HealthrisksControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.HealthrisksControllerTest$HealthriskOperations" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="userDAOtest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HealthrisksControllerTest$HealthriskOperations.Get health risks successfully from a unhealthy user" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.agileSoftDev.repositiries.*" />
+          <option name="PATTERN" value="org.agileSoftDev.testcontroller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.HealthrisksControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.HealthrisksControllerTest$HealthriskOperations" />
+      <option name="METHOD_NAME" value="Get health risks successfully from a unhealthy user" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HealthrisksControllerTest$HealthriskOperations.Get no health risks from a healthy user" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthTracker" />
+      <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.agileSoftDev.*" />
-          <option name="ENABLED" value="false" />
+          <option name="PATTERN" value="org.agileSoftDev.testcontroller.*" />
+          <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.agileSoftDev.repositiries" />
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.repositiries.userDAOtest" />
-      <option name="METHOD_NAME" value="" />
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.HealthrisksControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.HealthrisksControllerTest$HealthriskOperations" />
+      <option name="METHOD_NAME" value="Get no health risks from a healthy user" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HealthrisksControllerTest$diets" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthTracker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.agileSoftDev.testcontroller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.HealthrisksControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.HealthrisksControllerTest$diets" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.AppKt" />
+    <configuration name="agileSoftDev in healthTracker" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
-      <shortenClasspath name="NONE" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.AppKt" />
-        <item itemvalue="JUnit.UserDAOTest" />
-        <item itemvalue="JUnit.userDAOtest" />
-        <item itemvalue="Kotlin.AppKt" />
+        <item itemvalue="JUnit.agileSoftDev in healthTracker" />
+        <item itemvalue="JUnit.HealthrisksControllerTest$diets" />
+        <item itemvalue="JUnit.HealthrisksControllerTest$HealthriskOperations" />
+        <item itemvalue="JUnit.HealthrisksControllerTest$HealthriskOperations.Get no health risks from a healthy user" />
+        <item itemvalue="JUnit.HealthrisksControllerTest$HealthriskOperations.Get health risks successfully from a unhealthy user" />
       </list>
     </recent_temporary>
   </component>
@@ -195,6 +251,12 @@
       <workItem from="1730989985255" duration="861000" />
       <workItem from="1731339543055" duration="3377000" />
       <workItem from="1731342930704" duration="2544000" />
+      <workItem from="1731348473037" duration="260000" />
+      <workItem from="1731349920041" duration="6962000" />
+      <workItem from="1731409003750" duration="1183000" />
+      <workItem from="1731410355089" duration="6766000" />
+      <workItem from="1731417140012" duration="1469000" />
+      <workItem from="1731420060677" duration="6645000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />
@@ -245,6 +307,57 @@
     <MESSAGE value="Add remaining CRUD operations to the User Model" />
     <option name="LAST_COMMIT_MESSAGE" value="Add remaining CRUD operations to the User Model" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserController.kt</url>
+          <line>112</line>
+          <properties class="org.agileSoftDev.testcontroller.UserController.UserUpdateOperations" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserController.kt</url>
+          <line>126</line>
+          <properties class="org.agileSoftDev.testcontroller.UserController.UserUpdateOperations" method="update a non existing user and return a 404 error">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/ActivtyControllerTest.kt</url>
+          <line>91</line>
+          <properties class="org.agileSoftDev.testcontroller.ActivtyControllerTest.DeleteActivityOperations" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/repositiries/ActivityDAOtest.kt</url>
+          <line>66</line>
+          <properties class="org.agileSoftDev.repositiries.ActivityDAOtest.ActivitiesDeleteOperations" method="delete activities by userID">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthIndicatorTest.kt</url>
+          <line>77</line>
+          <properties class="org.agileSoftDev.testcontroller.HealthIndicatorTest.HealthIndicatorsPostOperations" method="Return 404  when trying to add health indicator for an invalid user ">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/healthTracker_application$userDAOtest.ic" NAME="userDAOtest Coverage Results" MODIFIED="1731343576976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.agileSoftDev.repositiries.*</FILTER>
@@ -254,6 +367,7 @@
       <FILTER>org.agileSoftDev.repositiries.*</FILTER>
       <FILTER>org.agileSoftDev.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/healthTracker_application$repositiries_in_healthTracker.ic" NAME="repositiries in healthTracker Coverage Results" MODIFIED="1731417310940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/healthTracker_application$healthIndicatorDAOTest.ic" NAME="healthIndicatorDAOTest Coverage Results" MODIFIED="1731342141728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.agileSoftDev.repositiries.*</FILTER>
     </SUITE>
@@ -268,5 +382,6 @@
     <SUITE FILE_PATH="coverage/healthTracker_application$userDAOtest_UpdateUser.ic" NAME="userDAOtest$UpdateUser Coverage Results" MODIFIED="1731342340824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>org.agileSoftDev.repositiries.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/healthTracker_application$agileSoftDev_in_healthTracker.ic" NAME="agileSoftDev in healthTracker Coverage Results" MODIFIED="1731427477602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

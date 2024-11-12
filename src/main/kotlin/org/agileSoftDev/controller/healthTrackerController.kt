@@ -6,6 +6,7 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import io.javalin.http.Context
 import org.agileSoftDev.domain.Activity
+import org.agileSoftDev.domain.ReadUser
 import org.agileSoftDev.domain.User
 import org.agileSoftDev.domain.repository.ActivityDAO
 import org.agileSoftDev.domain.repository.UserDAO
@@ -21,7 +22,7 @@ class healthTrackerController {
     fun getAllUsers(ctx: Context)  {      //AdminPrivilege+ Authentication required
             var users = userDAO.allUsers()
             if(users != null) ctx.json(200).json(mapOf(Pair("message","success"),Pair("data", users)))
-            else ctx.status(204).json(mapOf("message" to "No users found"))
+            else ctx.status(200).json(mapOf("message" to "No users found"))
     }
     fun getUserById(ctx: Context) {   //AdminPrivilege + Authentication required
         val user = userDAO.getUserById(ctx.pathParam("userID").toInt())
@@ -44,18 +45,20 @@ class healthTrackerController {
              ctx.status(201).json(mapOf("message" to "User created"))
          }
      }
-     catch (e : PSQLException) {
-         ctx.status(500).json(mapOf("message" to "Error creating user, ${e.message}"))
+     catch (e : Exception) {
+         ctx.status(400).json(mapOf("message" to "Error creating user, ${e.message}"))
      }
     }
     fun deleteUser(ctx: Context) {  //Same user privilege + authentication required
        try {
            val userID = ctx.pathParam("userID").toInt()
-           if (userID != null) {
+           var user = userDAO.getUserById(userID)
+           if (user != null) {
+
                userDAO.deleteUserById(userID)
                ctx.status(200).json(mapOf("message" to "User deleted"))
            }
-           else ctx.status(400).json(mapOf("message" to "Error, User not found"))
+           else ctx.status(404).json(mapOf("message" to "Error, User not found"))
        }
        catch (e : PSQLException) {
            ctx.status(500).json(mapOf("message" to "User deleteion unscuccesfull"))
@@ -65,14 +68,24 @@ class healthTrackerController {
         try {
                 val userId = ctx.pathParam("userID").toInt()
                 if (userId != null) {
-                    val mapper = jacksonObjectMapper()
-                    var user = mapper.readValue<User>(ctx.body())
-                    userDAO.updateUser(userId, user)
-                    ctx.status(200).json(mapOf("message" to "User updated"))
+                    val userFound = userDAO.getUserById(userId)
+                    if(userFound == null) {
+                        ctx.status(404).json(mapOf(Pair("status", "Failed"), Pair("message", "User not found")))
+                    }
+                    else{
+
+                        val mapper = jacksonObjectMapper()
+                        var user = mapper.readValue<ReadUser>(ctx.body())
+                        userFound!!.email = user.email?:userFound.email
+                        userFound!!.name = user.name?:userFound.name
+                        userDAO.updateUser(userId, userFound)
+                        ctx.status(200).json(mapOf("message" to "User updated"))
+                    }
+
             }
         }
         catch (e : PSQLException) {
-            ctx.status(500).json(mapOf("message" to "User updation unsuccesful, ${e.message}"))
+            ctx.status(505).json(mapOf("message" to "User updation unsuccesful, ${e.message}"))
         }
     }
 

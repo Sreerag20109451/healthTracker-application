@@ -1,6 +1,7 @@
 package org.agileSoftDev.domain.db
 
 import org.agileSoftDev.domain.HealthRisk
+import org.jetbrains.exposed.sql.ReferenceOption
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
@@ -17,8 +18,8 @@ object HealthRisks: Table("HealthRisks") {
     var alt = integer("alt").nullable()
     var ast = integer("ast").nullable()
     var gfr = integer("gfr").nullable()
-    var dept = varchar("dept",50).references(HealthDepartments.dept)
-    var dietid = integer("dietid").nullable()
+    var dept = varchar("dept",50).references(HealthDepartments.dept, onDelete = ReferenceOption.CASCADE)
+    var dietid = integer("dietid").references(Diets.dietid, onDelete = ReferenceOption.CASCADE).nullable()
 
 
     override val primaryKey: PrimaryKey = PrimaryKey(riskid)

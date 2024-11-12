@@ -1,5 +1,6 @@
 package org.agileSoftDev.domain.repository
 
+import org.agileSoftDev.domain.ReadUser
 import org.agileSoftDev.domain.User
 import org.agileSoftDev.domain.db.Users
 import org.agileSoftDev.utills.AuthenticationUtils.Bcryptutils
@@ -78,6 +79,8 @@ class UserDAO {
     }
 
     fun updateUser(id: Int,user: User)  {
+
+
         transaction {
                 Users.update({ Users.id eq id }) {
                     it[name] = user.name

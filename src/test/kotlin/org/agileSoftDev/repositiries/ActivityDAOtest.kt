@@ -32,6 +32,7 @@ class ActivityDAOtest {
         SchemaUtils.create(Activities)
         val activityDAO = ActivityDAO()
         for (activity in activities) {
+            println(activity)
             activityDAO.saveActivity(activity)
         }
         return activityDAO
@@ -67,7 +68,7 @@ class ActivityDAOtest {
             transaction {
                 var activitiesPopulated = populateDatabase()
                 assertEquals(2, activitiesPopulated.getActivityByUser(3).size)
-                activitiesPopulated.deleteActivityByUser(3,11)
+                activitiesPopulated.deleteActivityByUser(3,3)
                 assertEquals(1,activitiesPopulated.getActivityByUser(3).size)
             }
         }

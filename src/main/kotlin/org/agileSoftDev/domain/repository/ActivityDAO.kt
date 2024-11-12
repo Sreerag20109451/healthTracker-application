@@ -12,7 +12,6 @@ import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 
 class ActivityDAO {
-
     private var activities: ArrayList<Activity> = ArrayList()
     fun getAllActivities() : ArrayList<Activity> {
 
@@ -24,7 +23,6 @@ class ActivityDAO {
         }
         return activities
     }
-
     fun getActivityById(id: Int) : Activity? {
         var activity : Activity? = null
        transaction {
@@ -47,7 +45,6 @@ class ActivityDAO {
     fun saveActivity(activity: Activity) {
         transaction {
             Activities.insert {
-                it[id] = activity.id
                 it[description] = activity.description
                 it[duration] = activity.duration
                 it[calories] = activity.calories
@@ -56,7 +53,6 @@ class ActivityDAO {
             }
         }
     }
-
     fun deleteActivityByUser(id: Int, actId: Int){
         transaction {
 
