@@ -81,7 +81,7 @@ class ActivtyControllerTest {
         @Test
         fun `Add an activity for an existing user by an admin and return 201`(){
             var token = Login("healthAdmin@hospital.com", "admin") //Admin User
-            var body = "{\"description\":\"Walking\",\"duration\":1, \"calories\":18,\"started\":\"${DateTime.now()}\",\"userId\":2}"
+            var body = "{\"description\":\"Walking\",\"duration\":1, \"calories\":18,\"started\":\"${DateTime.now()}\",\"userId\":1}"
             var response = Unirest.post("$domain/api/users/1/activities").body(body).header("Authorization", "Bearer " + token).asString()
             assertEquals(201, response.status)
         }
@@ -101,7 +101,7 @@ class ActivtyControllerTest {
         @Test
         fun `return 200 when deleting a user with the same  normal user`(){
             var token = Login("20109451@mail.wit.ie", "test")
-            var response = Unirest.delete(domain + "/api/users/1/activities/1").header("Authorization", "Bearer " + token).asString()
+            var response = Unirest.delete(domain + "/api/users/1/activities/3").header("Authorization", "Bearer " + token).asString()
             assertEquals(200, response.status)
 
         }
