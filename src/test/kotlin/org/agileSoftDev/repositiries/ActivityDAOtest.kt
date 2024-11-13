@@ -32,7 +32,6 @@ class ActivityDAOtest {
         SchemaUtils.create(Activities)
         val activityDAO = ActivityDAO()
         for (activity in activities) {
-            println(activity)
             activityDAO.saveActivity(activity)
         }
         return activityDAO

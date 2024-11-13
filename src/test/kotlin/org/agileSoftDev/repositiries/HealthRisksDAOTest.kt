@@ -71,7 +71,6 @@ class HealthRisksDAOTest {
                 HealthRisks.selectAll()
                 var healthrisks = healthRiskDAO.getPossibleHealthRisks(3)
 
-                println(healthrisks)
                 assertEquals(5, healthrisks?.size)
 
             }
@@ -86,7 +85,6 @@ class HealthRisksDAOTest {
 
                 var healthrisks = healthRiskDAO.getPossibleHealthRisks(2)
 
-                println(healthrisks)
                 assertEquals(0, healthrisks?.size)
 
             }
