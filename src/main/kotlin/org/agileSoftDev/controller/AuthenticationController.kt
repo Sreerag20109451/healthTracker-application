@@ -24,8 +24,6 @@ class AuthenticationController {
                 if(user == null)  ctx.status(403).json(mapOf("message" to "Invalid email or password"))
                 else{
                     val token  = jwtObj.generateToken(user)
-                    println(user)
-                    println(user.role)
                     cookieStore.saveToCookieStore(ctx, User(user.id, user.name,user.email,user.password,user.role))
                     ctx.status(200).json(mapOf(Pair("message" , "${user.name} is logged in"),Pair("token",token)))
                 }
@@ -42,8 +40,6 @@ class AuthenticationController {
 
 
     fun logout(ctx: Context) {
-
-        println("logging out")
         ctx.cookieStore().clear()
 
     }

@@ -23,8 +23,6 @@ class HealthRiskDAO {
         if (healthIndicators == null) return null
         var indicatorMap: MutableMap<String, Int> = healthIndicatorDAO.nonNullIndicators(healthIndicators!!)
         var greaterIndicator = arrayListOf("boxygen", "hdl", "gfr")
-        println(indicatorMap)
-        println(indicatorMap["bmi"])
         indicatorMap.forEach { (key, value) ->
             if (key in greaterIndicator) {
                 transaction {
@@ -57,7 +55,6 @@ class HealthRiskDAO {
                 }
             }
         }
-        println(risks)
         return  selectDistinct(risks)
     }
 

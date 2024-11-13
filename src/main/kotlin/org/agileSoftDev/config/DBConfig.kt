@@ -28,7 +28,6 @@ class DBConfig {
         }
         catch (e : PSQLException) {
             logger.error { "Error connecting to database: $e" }
-            println("Error connecting to database")
         }
 
         return dbConfig

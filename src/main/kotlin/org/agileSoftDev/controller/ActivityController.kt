@@ -45,14 +45,10 @@ class ActivityController {
     fun deleteActivityByUser(ctx: Context){ //Same user privilege
         var userId = ctx.pathParam("userID").toInt()
         var activityId = ctx.pathParam("actId").toInt()
-        println(userId)
-        println(activityId)
         var user = userDAO.getUserById(userId)
         if(user!= null) {
-            println(user.id)
             var userActivities = activityDAO.getActivityByUser(userId)
             var activity = userActivities.find{it.id == activityId}
-            println(activity)
             if(activity != null)
             {
                 activityDAO.deleteActivityByUser(userId,activityId)

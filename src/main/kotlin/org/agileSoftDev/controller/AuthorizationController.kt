@@ -11,9 +11,7 @@ class AuthorizationController {
     fun CheckAdminRole(ctx: Context): Boolean {
         if (cookieStore.getFromCookieStore(ctx, "user") == null) return false
         else {
-            println(cookieStore.getFromCookieStore(ctx, "user"))
             var user = cookieStore.getFromCookieStore(ctx, "user")
-            println(user)
             var role = user!!.role
             return role == "admin"
         }
