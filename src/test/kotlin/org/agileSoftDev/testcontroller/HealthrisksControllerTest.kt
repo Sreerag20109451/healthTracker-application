@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 class HealthrisksControllerTest {
-
     private  val db = DBConfig().getConnection()
     private  val app = ServerContainer.instance
     private val domain = "http://localhost:"+ app.port()
@@ -23,7 +22,6 @@ class HealthrisksControllerTest {
         var resp = Unirest.post("$domain/api/login").body("{\"email\":\"$email\", \"password\":\"$password\"}")
             .asJson()
 
-        println(resp.body)
         var mapper = jacksonObjectMapper()
         val resultMap : HashMap<String, String> = mapper.readValue(resp.body.toString())
 
@@ -60,7 +58,6 @@ class HealthrisksControllerTest {
             var response = Unirest.get(domain + "/api/users/2/getdiets").header("Authorization", "Bearer " + token).asString()
             assertEquals(200, response.status)
             assert(response.body.toString().contains("Diets are found"))
-          println(response.body.toString())
         }
         @Test
         fun `Get no diets for a healthy user`(){

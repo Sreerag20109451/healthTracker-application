@@ -1,7 +1,5 @@
 package org.agileSoftDev.domain.db
 
-import org.agileSoftDev.domain.Activity
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.isNotNull
 import org.jetbrains.exposed.sql.Table
 
 

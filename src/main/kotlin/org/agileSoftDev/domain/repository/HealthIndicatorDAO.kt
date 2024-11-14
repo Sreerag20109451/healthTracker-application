@@ -4,7 +4,6 @@ import org.agileSoftDev.domain.HealthIndicator
 import org.agileSoftDev.domain.db.HealthIndicators
 import org.agileSoftDev.utills.healthIndicators.HealthIndexes
 import org.agileSoftDev.utills.mapToHealthIndicator
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction

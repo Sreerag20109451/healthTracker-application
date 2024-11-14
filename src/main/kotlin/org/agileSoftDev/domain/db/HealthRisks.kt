@@ -1,11 +1,7 @@
 package org.agileSoftDev.domain.db
 
-import org.agileSoftDev.domain.HealthRisk
 import org.jetbrains.exposed.sql.ReferenceOption
 import org.jetbrains.exposed.sql.Table
-import org.jetbrains.exposed.sql.insert
-import org.jetbrains.exposed.sql.selectAll
-import org.jetbrains.exposed.sql.transactions.transaction
 
 object HealthRisks: Table("HealthRisks") {
 

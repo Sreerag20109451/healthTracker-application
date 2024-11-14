@@ -11,8 +11,6 @@ import org.agileSoftDev.domain.db.Activities
 import org.agileSoftDev.domain.db.Diets
 import org.agileSoftDev.domain.db.HealthIndicators
 import org.agileSoftDev.domain.db.Users
-import org.agileSoftDev.utills.Enums.UserRoles
-import org.jetbrains.exposed.sql.Function
 import org.jetbrains.exposed.sql.ResultRow
 
 fun mapToUser(it : ResultRow): User {

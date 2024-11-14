@@ -6,16 +6,13 @@ import io.javalin.http.Context
 import org.agileSoftDev.domain.HealthIndicator
 import org.agileSoftDev.domain.repository.HealthIndicatorDAO
 import org.agileSoftDev.domain.repository.UserDAO
-
 class HealthIndicatorController {
-
     private var userDAO = UserDAO()
     private val authorizationController = AuthorizationController()
     private  val healthIndicatorDAO =  HealthIndicatorDAO()
-
     fun addIndicatorsforUser(ctx: Context) {
         var mapper = jacksonObjectMapper()
-       val healthIndicator: HealthIndicator = mapper.readValue<HealthIndicator>(ctx.body())
+        val healthIndicator: HealthIndicator = mapper.readValue<HealthIndicator>(ctx.body())
       var userID = ctx.pathParam("userID").toInt()
       var user =  userDAO.getUserById(userID)
       if(user == null) {
@@ -34,7 +31,5 @@ class HealthIndicatorController {
         else ctx.status(200).json(mapOf(Pair("status", "success"),Pair("message","indicators retrieved"),Pair("data", healthIndicators)))
 
     }
-    
-
 
 }

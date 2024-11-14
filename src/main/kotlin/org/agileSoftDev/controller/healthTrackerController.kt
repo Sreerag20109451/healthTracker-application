@@ -1,18 +1,14 @@
 package org.agileSoftDev.controller
 
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.datatype.joda.JodaModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import io.javalin.http.Context
-import org.agileSoftDev.domain.Activity
 import org.agileSoftDev.domain.ReadUser
 import org.agileSoftDev.domain.User
 import org.agileSoftDev.domain.repository.ActivityDAO
 import org.agileSoftDev.domain.repository.UserDAO
-import org.agileSoftDev.utills.Enums.checkActivities
 import org.agileSoftDev.utills.Enums.checkRole
-import org.agileSoftDev.utills.writeAsString
+import org.agileSoftDev.utills.isValidEmail
 import org.postgresql.util.PSQLException
 
 class healthTrackerController {
@@ -39,6 +35,10 @@ class healthTrackerController {
      try{
          val mapper = jacksonObjectMapper()
          var user = mapper.readValue<User>(ctx.body())
+         if(!isValidEmail(user.email)) {
+             ctx.status(400)
+             return
+         }
          if(!checkRole(user.role)) ctx.status(400).json(mapOf("message" to "Error, the user cannot have this role"))
          else{
              userDAO.addUser(user)
@@ -76,6 +76,10 @@ class healthTrackerController {
 
                         val mapper = jacksonObjectMapper()
                         var user = mapper.readValue<ReadUser>(ctx.body())
+                        if( user.email != null && !isValidEmail(user.email!!)) {
+                            ctx.status(400)
+                            return
+                        }
                         userFound!!.email = user.email?:userFound.email
                         userFound!!.name = user.name?:userFound.name
                         userDAO.updateUser(userId, userFound)

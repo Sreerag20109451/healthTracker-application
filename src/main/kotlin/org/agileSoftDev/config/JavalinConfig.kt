@@ -1,8 +1,9 @@
 package org.agileSoftDev.config
 
 import io.javalin.Javalin
-import io.javalin.http.Context
+import io.javalin.http.staticfiles.Location
 import io.javalin.json.JavalinJackson
+import io.javalin.vue.VueComponent
 import org.agileSoftDev.controller.*
 import org.agileSoftDev.utills.AuthenticationUtils.JWTutils
 import org.agileSoftDev.utills.AuthenticationUtils.jsonObjectMapper
@@ -18,12 +19,17 @@ class JavalinConfig {
     private val healthRiskController =HealthRiskController()
 
     fun startJavalinInstance() : Javalin {
-        val app = Javalin.create{ it.jsonMapper(JavalinJackson(jsonObjectMapper()))}.apply {  }.start(getRemoteAssignedPort())
+        val app = Javalin.create{ it.jsonMapper(JavalinJackson(jsonObjectMapper()))
+            it.staticFiles.enableWebjars()
+            it.vue.rootDirectory("/home/sreerag/setuESS/healthTracker-application/frontend/src/Vue", Location.EXTERNAL)
+            it.vue.vueInstanceNameInJs = "app"
+        }.apply {  }.start(getRemoteAssignedPort())
         registerRoutes(app)
         return  app
     }
 
     fun registerRoutes(app: Javalin) {
+        app.get("/", VueComponent("<home-page></home-page>"))
         //Login and LogOut
         app.post("/api/logout", authenticationController::logout)
         app.post("/api/login", authenticationController::login)

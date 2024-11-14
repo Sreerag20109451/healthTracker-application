@@ -1,0 +1,147 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > HealthRiskController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.agileSoftDev.controller</a>
+</div>
+
+<h1>Coverage Summary for Class: HealthRiskController (org.agileSoftDev.controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">HealthRiskController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (6/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/11)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.controller
+&nbsp;
+&nbsp;import io.javalin.http.Context
+&nbsp;import org.agileSoftDev.domain.repository.HealthRiskDAO
+&nbsp;
+<b class="fc">&nbsp;class HealthRiskController {</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;    var riskDAO = HealthRiskDAO()</b>
+&nbsp;
+&nbsp;    fun getRisks (ctx: Context){
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        val userID = ctx.pathParam(&quot;userID&quot;).toInt()</b>
+<b class="fc">&nbsp;        val risks =  riskDAO.getPossibleHealthRisks(userID)</b>
+<b class="pc">&nbsp;        if((risks == null) or risks?.isEmpty()!! ) ctx.status(200).json(mapOf(Pair(&quot;status&quot;,&quot;success&quot;),Pair(&quot;message&quot;, &quot;No health risks found for user&quot;)))</b>
+&nbsp;        else{
+<b class="fc">&nbsp;            ctx.status(200).json(mapOf(Pair(&quot;status&quot; , &quot;success&quot;),Pair(&quot;message&quot;,&quot;Health risks found for user&quot;),Pair(&quot;data&quot;, risks)))</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;    fun suggestDiets  (ctx: Context){
+&nbsp;
+<b class="fc">&nbsp;        val userID = ctx.pathParam(&quot;userID&quot;).toInt()</b>
+<b class="fc">&nbsp;        val risks = riskDAO.getPossibleHealthRisks(userID)</b>
+<b class="fc">&nbsp;        val diets = riskDAO.getDiet(risks)</b>
+<b class="fc">&nbsp;        if(diets == null) ctx.status(200).json(mapOf(Pair(&quot;status&quot;,&quot;success&quot;),Pair(&quot;message&quot;, &quot;No diets required&quot;),Pair(&quot;data&quot;, diets)))</b>
+<b class="fc">&nbsp;        else ctx.status(200).json(mapOf(Pair(&quot;status&quot;,&quot;success&quot;),Pair(&quot;message&quot;, &quot;Diets are found&quot;),Pair(&quot;data&quot;, diets)))</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-14 15:27</div>
+</div>
+</body>
+</html>

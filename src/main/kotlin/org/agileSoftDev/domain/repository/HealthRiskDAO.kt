@@ -2,14 +2,10 @@ package org.agileSoftDev.domain.repository
 
 import org.agileSoftDev.domain.Diet
 import org.agileSoftDev.domain.HealthIndicator
-import org.agileSoftDev.domain.HealthRisk
 import org.agileSoftDev.domain.db.Diets
 import org.agileSoftDev.domain.db.HealthRisks
 import org.agileSoftDev.utills.mapToDiet
 import org.agileSoftDev.utills.selectDistinct
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.greater
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.less
-import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 

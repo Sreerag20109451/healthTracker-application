@@ -1,0 +1,217 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > ActivityController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.agileSoftDev.controller</a>
+</div>
+
+<h1>Coverage Summary for Class: ActivityController (org.agileSoftDev.controller)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ActivityController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    57.1%
+  </span>
+  <span class="absValue">
+    (8/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85.7%
+  </span>
+  <span class="absValue">
+    (24/28)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ActivityController$addactivity$$inlined$readValue$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    57.1%
+  </span>
+  <span class="absValue">
+    (8/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    86.2%
+  </span>
+  <span class="absValue">
+    (25/29)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.controller
+&nbsp;
+&nbsp;import com.fasterxml.jackson.databind.SerializationFeature
+&nbsp;import com.fasterxml.jackson.datatype.joda.JodaModule
+&nbsp;import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+&nbsp;import com.fasterxml.jackson.module.kotlin.readValue
+&nbsp;import io.javalin.http.Context
+&nbsp;import org.agileSoftDev.domain.Activity
+&nbsp;import org.agileSoftDev.domain.repository.ActivityDAO
+&nbsp;import org.agileSoftDev.domain.repository.UserDAO
+&nbsp;import org.agileSoftDev.utills.Enums.checkActivities
+&nbsp;import org.agileSoftDev.utills.writeAsString
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;class ActivityController {</b>
+&nbsp;
+<b class="fc">&nbsp;    private  var activityDAO = ActivityDAO()</b>
+<b class="fc">&nbsp;    private  var userDAO = UserDAO()</b>
+&nbsp;
+&nbsp;    fun getAllActivities(ctx: Context) { //Admin privilege + authentication required
+<b class="fc">&nbsp;        val activities = writeAsString { activityDAO.getAllActivities() }</b>
+<b class="fc">&nbsp;        ctx.status(200).json(mapOf(Pair(&quot;message&quot; , &quot;Success&quot;),Pair(&quot;data&quot;, activities)))</b>
+&nbsp;    }
+&nbsp;    fun getActivityByUser(ctx: Context) { //Same user privilege
+<b class="fc">&nbsp;        var userId = ctx.pathParam(&quot;userID&quot;).toInt()</b>
+<b class="fc">&nbsp;        val activities = activityDAO.getActivityByUser(userId)</b>
+<b class="pc">&nbsp;        if (activities.size &gt; 0) {</b>
+<b class="fc">&nbsp;            val parsedActivities = writeAsString { activities }</b>
+<b class="fc">&nbsp;            ctx.status(200).json(mapOf(Pair(&quot;message&quot;, &quot;Success&quot;), Pair(&quot;data&quot;, activities)))</b>
+<b class="nc">&nbsp;        } else ctx.status(200).json(mapOf(Pair(&quot;message&quot;, &quot;No activities for the user&quot;), Pair(&quot;data&quot;, null)))</b>
+&nbsp;    }
+&nbsp;    fun addactivity(ctx: Context) { //Same user privilege
+&nbsp;
+<b class="fc">&nbsp;        val mapper = jacksonObjectMapper().registerModules(JodaModule())</b>
+<b class="fc">&nbsp;            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)</b>
+<b class="fc">&nbsp;        var activity = mapper.readValue&lt;Activity&gt;(ctx.body())</b>
+<b class="pc">&nbsp;        if(!checkActivities(activity.description)) ctx.status(400).json(mapOf(&quot;message&quot; to &quot;Error, the activity description is invalid&quot;))</b>
+&nbsp;        else{
+<b class="fc">&nbsp;            activityDAO.saveActivity(activity)</b>
+<b class="fc">&nbsp;            ctx.status(201).json(mapOf(&quot;message&quot; to &quot;success&quot;))</b>
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;    fun deleteActivityByUser(ctx: Context){ //Same user privilege
+<b class="fc">&nbsp;        var userId = ctx.pathParam(&quot;userID&quot;).toInt()</b>
+<b class="fc">&nbsp;        var activityId = ctx.pathParam(&quot;actId&quot;).toInt()</b>
+<b class="fc">&nbsp;        var user = userDAO.getUserById(userId)</b>
+<b class="pc">&nbsp;        if(user!= null) {</b>
+<b class="fc">&nbsp;            var userActivities = activityDAO.getActivityByUser(userId)</b>
+<b class="pc">&nbsp;            var activity = userActivities.find{it.id == activityId}</b>
+<b class="pc">&nbsp;            if(activity != null)</b>
+&nbsp;            {
+<b class="nc">&nbsp;                activityDAO.deleteActivityByUser(userId,activityId)</b>
+<b class="nc">&nbsp;                ctx.json(200).json(mapOf(&quot;message&quot; to &quot;Activity deleted&quot;))</b>
+&nbsp;            }
+&nbsp;            else{
+<b class="fc">&nbsp;                ctx.json(400).json(mapOf(&quot;message&quot; to &quot;Error, No such activity for the user found&quot;))</b>
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        else ctx.status(400).json(mapOf(&quot;message&quot; to &quot;Error, No user found&quot;))</b>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-14 15:27</div>
+</div>
+</body>
+</html>

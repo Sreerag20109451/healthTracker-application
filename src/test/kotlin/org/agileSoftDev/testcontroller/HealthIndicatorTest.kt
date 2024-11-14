@@ -23,7 +23,6 @@ class HealthIndicatorTest {
         var resp = Unirest.post("$domain/api/login").body("{\"email\":\"$email\", \"password\":\"$password\"}")
             .asJson()
 
-        println(resp.body)
         var mapper = jacksonObjectMapper()
         val resultMap : HashMap<String, String> = mapper.readValue(resp.body.toString())
 

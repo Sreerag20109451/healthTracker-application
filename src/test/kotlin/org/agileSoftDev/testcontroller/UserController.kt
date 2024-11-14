@@ -6,8 +6,6 @@ import kong.unirest.core.Unirest
 import org.agileSoftDev.config.DBConfig
 import org.agileSoftDev.domain.User
 import org.agileSoftDev.helpers.ServerContainer
-import org.agileSoftDev.utills.AuthenticationUtils.jsonObjectMapper
-import org.eclipse.jetty.util.security.Password
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
@@ -24,7 +22,6 @@ class UserController {
         var resp = Unirest.post("$domain/api/login").body("{\"email\":\"$email\", \"password\":\"$password\"}")
             .asJson()
 
-        println(resp.body)
         var mapper = jacksonObjectMapper()
         val resultMap : HashMap<String, String> = mapper.readValue(resp.body.toString())
 

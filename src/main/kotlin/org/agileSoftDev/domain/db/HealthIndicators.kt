@@ -1,6 +1,5 @@
 package org.agileSoftDev.domain.db
 
-import org.agileSoftDev.domain.db.Activities.id
 import org.jetbrains.exposed.sql.ReferenceOption
 import org.jetbrains.exposed.sql.Table
 

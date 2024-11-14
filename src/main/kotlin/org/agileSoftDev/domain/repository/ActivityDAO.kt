@@ -3,7 +3,6 @@ package org.agileSoftDev.domain.repository
 import org.agileSoftDev.domain.Activity
 import org.agileSoftDev.domain.db.Activities
 import org.agileSoftDev.utills.mapToActivities
-import org.agileSoftDev.utills.mapToUser
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.and
 import org.jetbrains.exposed.sql.deleteWhere

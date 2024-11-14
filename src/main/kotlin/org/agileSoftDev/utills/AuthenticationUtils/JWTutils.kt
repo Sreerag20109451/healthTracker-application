@@ -20,7 +20,6 @@ class JWTutils {
 
     fun verifyTokens(ctx: Context) : Boolean {
         val decodedJWT = JavalinJWT.getTokenFromHeader(ctx).flatMap(ProviderJWT::validateToken )
-        println(JavalinJWT.getTokenFromHeader(ctx))
         return decodedJWT.isPresent()
     }
 
