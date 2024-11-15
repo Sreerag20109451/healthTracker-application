@@ -7,9 +7,7 @@
     <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/ActivityController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/ActivityController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/HealthIndicatorController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/HealthIndicatorController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/healthTrackerController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/UserController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthenticationController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthenticationController.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +269,7 @@
       <workItem from="1731521473620" duration="5779000" />
       <workItem from="1731577230574" duration="3795000" />
       <workItem from="1731586692696" duration="5915000" />
-      <workItem from="1731683608143" duration="1892000" />
+      <workItem from="1731683608143" duration="3570000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />

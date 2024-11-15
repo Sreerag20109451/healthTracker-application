@@ -33,7 +33,7 @@ class AuthenticationController {
             }
 
         }catch (e: Exception){
-            ctx.status(500).json(mapOf(Pair("message","Error logging in, ${e.message}" ),Pair("data", null)))
+            ctx.status(500).json(mapOf(Pair("message","Error logging in, ${e.message}" )))
         }
 
     }
