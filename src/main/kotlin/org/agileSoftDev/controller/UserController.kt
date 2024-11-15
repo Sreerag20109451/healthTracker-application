@@ -11,7 +11,7 @@ import org.agileSoftDev.utills.Enums.checkRole
 import org.agileSoftDev.utills.isValidEmail
 import org.postgresql.util.PSQLException
 
-class healthTrackerController {
+class UserController {
     private val userDAO = UserDAO()
     private val activityDAO = ActivityDAO()
 
@@ -46,7 +46,7 @@ class healthTrackerController {
          }
      }
      catch (e : Exception) {
-         ctx.status(400).json(mapOf("message" to "Error creating user, ${e.message}"))
+         ctx.status(500).json(mapOf("message" to "Error creating user, ${e.message}"))
      }
     }
     fun deleteUser(ctx: Context) {  //Same user privilege + authentication required
@@ -89,7 +89,7 @@ class healthTrackerController {
             }
         }
         catch (e : PSQLException) {
-            ctx.status(505).json(mapOf("message" to "User updation unsuccesful, ${e.message}"))
+            ctx.status(500).json(mapOf("message" to "User updation unsuccesful, ${e.message}"))
         }
     }
 

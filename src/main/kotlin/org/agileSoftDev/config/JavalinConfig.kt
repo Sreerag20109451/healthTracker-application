@@ -3,14 +3,13 @@ package org.agileSoftDev.config
 import io.javalin.Javalin
 import io.javalin.http.staticfiles.Location
 import io.javalin.json.JavalinJackson
-import io.javalin.vue.VueComponent
 import org.agileSoftDev.controller.*
 import org.agileSoftDev.utills.AuthenticationUtils.JWTutils
 import org.agileSoftDev.utills.AuthenticationUtils.jsonObjectMapper
 import org.postgresql.util.PSQLException
 
 class JavalinConfig {
-    private val controller = healthTrackerController()
+    private val controller = UserController()
     private  val jwtObj = JWTutils()
     private val accessController =  AuthorizationController()
     private val authenticationController = AuthenticationController()
@@ -29,7 +28,6 @@ class JavalinConfig {
     }
 
     fun registerRoutes(app: Javalin) {
-        app.get("/", VueComponent("<home-page></home-page>"))
         //Login and LogOut
         app.post("/api/logout", authenticationController::logout)
         app.post("/api/login", authenticationController::login)

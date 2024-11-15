@@ -41,6 +41,7 @@ class AuthenticationController {
 
     fun logout(ctx: Context) {
         ctx.cookieStore().clear()
+        ctx.status(200).json(mapOf("message" to "Logged out"))
 
     }
 
