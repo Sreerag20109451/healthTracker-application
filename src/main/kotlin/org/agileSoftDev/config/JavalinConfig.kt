@@ -18,6 +18,8 @@ class JavalinConfig {
     private val healthRiskController =HealthRiskController()
     private val dietController = DietController()
 
+    //https://javalin.io/documentation#before-handlers - reference from Javalin documentation
+
     fun startJavalinInstance() : Javalin {
         val app = Javalin.create{ it.jsonMapper(JavalinJackson(jsonObjectMapper()))
             it.staticFiles.enableWebjars()
@@ -41,7 +43,6 @@ class JavalinConfig {
             else ctx.status(401).json(mapOf("message" to "Authentication error, invalid token!"))
         }
         app.get("/api/users/{userID}/details"){ctx ->
-            println("efe")
             if(jwtObj.verifyTokens(ctx)) accessController.adminOnlyPrivilegeCheck(ctx,controller::getDetails)
             else ctx.status(401).json(mapOf("message" to "Authentication error, invalid token!"))
         }

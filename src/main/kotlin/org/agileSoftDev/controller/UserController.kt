@@ -8,6 +8,7 @@ import org.agileSoftDev.domain.User
 import org.agileSoftDev.domain.repository.*
 import org.agileSoftDev.utills.Enums.checkRole
 import org.agileSoftDev.utills.isValidEmail
+import org.agileSoftDev.utills.validEmailStructure
 import org.postgresql.util.PSQLException
 
 class UserController {
@@ -77,7 +78,7 @@ class UserController {
                     else{
                         val mapper = jacksonObjectMapper()
                         var user = mapper.readValue<ReadUser>(ctx.body())
-                        if( user.email != null && !isValidEmail(user.email!!)) {
+                        if( user.email != null && !validEmailStructure(user.email!!)) {
                             ctx.status(400)
                             return
                         }
@@ -96,7 +97,6 @@ class UserController {
     fun getDetails(ctx: Context){
 
         val id = ctx.pathParam("userID").toInt()
-        println("frfr")
         val user = userDAO.getUserById(id)
         if(user == null) { ctx.status(404).json(mapOf("message" to "User is not found"))
         return

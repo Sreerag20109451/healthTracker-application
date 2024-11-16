@@ -1,0 +1,129 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > EnumsKt</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.agileSoftDev.utills.Enums</a>
+</div>
+
+<h1>Coverage Summary for Class: EnumsKt (org.agileSoftDev.utills.Enums)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EnumsKt</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    40%
+  </span>
+  <span class="absValue">
+    (2/5)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.utills.Enums
+&nbsp;
+&nbsp;enum class UserRoles(var value: String) {
+&nbsp;
+&nbsp;    ADMIN(&quot;admin&quot;),
+&nbsp;    USER(&quot;user&quot;)
+&nbsp;}
+&nbsp;enum class Activities(var value: String) {
+&nbsp;
+&nbsp;    RUNNING(&quot;running&quot;),
+&nbsp;    WALKING(&quot;walking&quot;),
+&nbsp;    JUMPROPING(&quot;jump roping&quot;),
+&nbsp;    SPRINTING(&quot;sprinting&quot;),
+&nbsp;
+&nbsp;}
+&nbsp;fun checkRole(role : String): Boolean{
+<b class="nc">&nbsp;    var validRoles = UserRoles.entries.map{it -&gt; it.value}</b>
+<b class="nc">&nbsp;    println(validRoles)</b>
+<b class="nc">&nbsp;    return validRoles.contains(role.lowercase())</b>
+&nbsp;}
+&nbsp;
+&nbsp;fun checkActivities(activitYDes: String): Boolean{
+<b class="fc">&nbsp;    var validActivities = Activities.entries.map{it -&gt; it.value}</b>
+<b class="fc">&nbsp;    return validActivities.contains(activitYDes.lowercase())</b>
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-17 01:23</div>
+</div>
+</body>
+</html>

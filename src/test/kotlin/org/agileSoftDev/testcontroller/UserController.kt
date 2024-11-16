@@ -97,9 +97,9 @@ class UserController {
             assertEquals(201,resp.status)
         }
         @Test
-        fun `add users with invalid body and get a 400 response coder` (){
+        fun `add users with invalid email and get a 400 response code` (){
 
-            var body = "{\"name\":\"testUser\",\"email\":\"myEmail@abc.com\", \"password\":\"abc\"}"
+            var body = "{\"name\":\"testUser\",\"email\":\"jbhbabc.com\", \"password\":\"abc\",\"role\":\"user\"}"
             var resp = Unirest.post(domain+"/api/users").body(body).asString()
             assertEquals(400,resp.status)
         }
@@ -113,9 +113,10 @@ class UserController {
         fun `update users successfully and get a 200 response code with an admin user`() {
 
             var token = Login("healthAdmin@hospital.com", "admin") //Admin User
-            var body = "{\"name\":\"test_user\", \"email\":\"testuser@test.com\"}"
+            var body = "{\"name\":\"test_user\", \"email\":\"sdsd@mail.com\"}"
             var response =
-                Unirest.put(domain + "/api/users/15").body(body).header("Authorization", "Bearer " + token).asString()
+                Unirest.put(domain + "/api/users/2").body(body).header("Authorization", "Bearer " + token).asString()
+            assertEquals(200, response.status)
             assert(response.body.toString().contains("User updated"))
 
         }
@@ -123,7 +124,7 @@ class UserController {
         @Test
         fun `update a non existing user and return a 404 error`() {
             var token = Login("healthAdmin@hospital.com", "admin") //Admin User
-            var body = "{\"name\":\"test_user\", \"email\":\"testuser@test.com\"}"
+            var body = "{\"name\":\"test_user\", \"email\":\"sdsd@mail.com\"}"
             var response =
                 Unirest.put(domain + "/api/users/150").body(body).header("Authorization", "Bearer " + token).asString()
             assertEquals(404, response.status)
