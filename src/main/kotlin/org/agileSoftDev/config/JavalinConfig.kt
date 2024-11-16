@@ -40,6 +40,12 @@ class JavalinConfig {
             if(jwtObj.verifyTokens(ctx)) accessController.adminOnlyPrivilegeCheck(ctx,controller::getAllUsers)
             else ctx.status(401).json(mapOf("message" to "Authentication error, invalid token!"))
         }
+        app.get("/api/users/{userID}/details"){ctx ->
+            println("efe")
+            if(jwtObj.verifyTokens(ctx)) accessController.adminOnlyPrivilegeCheck(ctx,controller::getDetails)
+            else ctx.status(401).json(mapOf("message" to "Authentication error, invalid token!"))
+        }
+
 
         app.get("/api/users/email/{email}"){ctx ->
             if(jwtObj.verifyTokens(ctx)) accessController.adminOnlyPrivilegeCheck(ctx,controller::findUserByEmail)
@@ -124,6 +130,10 @@ class JavalinConfig {
 
         }
 
+        app.get("/*" ){
+            ctx -> ctx.status(404).json(mapOf("message" to "Path not found"))
+        }
+
         //Errors and exceptions
         app.exception(PSQLException::class.java){
                 e, ctx -> ctx.status(500).json(mapOf("message " to "SQLException"))
@@ -131,9 +141,6 @@ class JavalinConfig {
 
         app.error(500){
                 ctx -> ctx.status(500).json(mapOf("message " to "ServerError"))
-        }
-        app.error(404){
-                ctx -> ctx.json(mapOf("message" to "404 error, not found"))
         }
     }
 

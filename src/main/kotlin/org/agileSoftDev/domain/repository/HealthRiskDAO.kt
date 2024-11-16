@@ -55,22 +55,4 @@ class HealthRiskDAO {
     }
 
 
-    fun getDiet(risks: ArrayList<String>?) : List<Diet>? {
-        if(risks == null) return null
-        if(risks.isEmpty()) return null
-        var dietIds: ArrayList<Int?> = arrayListOf()
-        var diet: ArrayList<Diet> = arrayListOf()
-        risks.forEach { risk ->
-
-            transaction {
-                HealthRisks.selectAll().where { HealthRisks.risk eq risk }.map {
-                    var dietid: Int? = it[HealthRisks.dietid]?.toInt()
-                    Diets.selectAll().where { Diets.dietid eq dietid!! }.map {
-                        diet.add(mapToDiet(it))
-                    }
-                }
-            }
-        }
-        return diet.distinct()
-    }
 }

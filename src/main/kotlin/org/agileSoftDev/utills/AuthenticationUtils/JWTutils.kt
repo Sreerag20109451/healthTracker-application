@@ -8,6 +8,9 @@ import javalinjwt.JWTProvider
 import javalinjwt.JavalinJWT
 import org.agileSoftDev.domain.User
 
+
+//https://github.com/kmehrunes/javalin-jwt - JWT reference
+
 class JWTutils {
     val algorithm = Algorithm.HMAC256("secret")
 

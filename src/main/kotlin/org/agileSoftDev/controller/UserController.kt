@@ -5,8 +5,7 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import io.javalin.http.Context
 import org.agileSoftDev.domain.ReadUser
 import org.agileSoftDev.domain.User
-import org.agileSoftDev.domain.repository.ActivityDAO
-import org.agileSoftDev.domain.repository.UserDAO
+import org.agileSoftDev.domain.repository.*
 import org.agileSoftDev.utills.Enums.checkRole
 import org.agileSoftDev.utills.isValidEmail
 import org.postgresql.util.PSQLException
@@ -14,6 +13,9 @@ import org.postgresql.util.PSQLException
 class UserController {
     private val userDAO = UserDAO()
     private val activityDAO = ActivityDAO()
+    private val healthIndicatorDAO = HealthIndicatorDAO()
+    private val healthRiskDAO = HealthRiskDAO()
+    private val dietDAO = DietsDAO()
 
     fun getAllUsers(ctx: Context)  {      //AdminPrivilege+ Authentication required
             var users = userDAO.allUsers()
@@ -73,7 +75,6 @@ class UserController {
                         ctx.status(404).json(mapOf(Pair("status", "Failed"), Pair("message", "User not found")))
                     }
                     else{
-
                         val mapper = jacksonObjectMapper()
                         var user = mapper.readValue<ReadUser>(ctx.body())
                         if( user.email != null && !isValidEmail(user.email!!)) {
@@ -85,12 +86,31 @@ class UserController {
                         userDAO.updateUser(userId, userFound)
                         ctx.status(200).json(mapOf("message" to "User updated"))
                     }
-
             }
         }
         catch (e : PSQLException) {
             ctx.status(500).json(mapOf("message" to "User updation unsuccesful, ${e.message}"))
         }
+    }
+
+    fun getDetails(ctx: Context){
+
+        val id = ctx.pathParam("userID").toInt()
+        println("frfr")
+        val user = userDAO.getUserById(id)
+        if(user == null) { ctx.status(404).json(mapOf("message" to "User is not found"))
+        return
+        }
+        val indicators =  healthIndicatorDAO.getHealthIndicatorsByUser(id)
+        if (indicators == null) {   ctx.status(404).json(mapOf("message" to "Not enough information for generating report"))
+            return
+        }
+        var indicatormap = healthIndicatorDAO.nonNullIndicators(indicators)
+        val risks = healthRiskDAO.getPossibleHealthRisks(id)
+        val  diets = dietDAO.getDiet(risks)
+        ctx.status(200).json(mapOf(Pair("message", "details retrieved succesfully"),Pair("data", mapOf(Pair("user", user),Pair("indicators", indicatormap),Pair("diets", diets),Pair("risks", risks)))))
+
+
     }
 
 
