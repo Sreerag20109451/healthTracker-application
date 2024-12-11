@@ -2,17 +2,16 @@ package org.agileSoftDev.controller
 
 import io.javalin.http.Context
 import org.agileSoftDev.domain.User
-import org.agileSoftDev.utills.cookies.CookieStore
 
 class AuthorizationController {
 
-    private var cookieStore = CookieStore()
+    private var cookieStore = CookieController()
 
-    fun CheckAdminRole(ctx: Context): Boolean {
+    private fun CheckAdminRole(ctx: Context): Boolean {
         if (cookieStore.getFromCookieStore(ctx, "user") == null) return false
         else {
-            var user = cookieStore.getFromCookieStore(ctx, "user")
-            var role = user!!.role
+            val user = cookieStore.getFromCookieStore(ctx, "user")
+            val role = user!!.role
             return role == "admin"
         }
     }
@@ -20,8 +19,8 @@ class AuthorizationController {
     fun checkSameUserloggedIn(ctx: Context): Boolean {
         if (cookieStore.getFromCookieStore(ctx, "user") == null) return false
         else {
-            var userIDResourceBeingchecked = ctx.pathParam("userID").toInt()
-            var userIDloggedIn = cookieStore.getFromCookieStore(ctx, "user")?.id
+            val userIDResourceBeingchecked = ctx.pathParam("userID").toInt()
+            val userIDloggedIn = cookieStore.getFromCookieStore(ctx, "user")?.id
             return userIDResourceBeingchecked == userIDloggedIn
 
         }

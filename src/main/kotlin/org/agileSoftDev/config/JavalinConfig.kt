@@ -131,14 +131,12 @@ class JavalinConfig {
 
         }
 
-        app.get("/*" ){
-            ctx -> ctx.status(404).json(mapOf("message" to "Path not found"))
-        }
 
         //Errors and exceptions
-        app.exception(PSQLException::class.java){
-                e, ctx -> ctx.status(500).json(mapOf("message " to "SQLException"))
+        app.get("/*" ){
+                ctx -> ctx.status(404).json(mapOf("message" to "Path not found"))
         }
+
 
         app.error(500){
                 ctx -> ctx.status(500).json(mapOf("message " to "ServerError"))

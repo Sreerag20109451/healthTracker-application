@@ -21,6 +21,7 @@ class HealthRiskDAO {
         var greaterIndicator = arrayListOf("boxygen", "hdl", "gfr")
         indicatorMap.forEach { (key, value) ->
             if (key in greaterIndicator) {
+                //The idea for the  structure of the below transaction was obtained while debugging(The block of code generated was incorrect)
                 transaction {
                     val query = when (key) {
 

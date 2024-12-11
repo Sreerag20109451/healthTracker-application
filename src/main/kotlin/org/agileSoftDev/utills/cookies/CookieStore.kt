@@ -7,9 +7,7 @@ import org.agileSoftDev.domain.User
 
 class CookieStore {
 
-
      fun saveToCookieStore(ctx: Context, user: User){
-
          var mapper = jacksonObjectMapper()
          var user = mapper.writeValueAsString(user)
         ctx.cookieStore().set("user", user)
@@ -21,11 +19,9 @@ class CookieStore {
 
             var stringUser: String =  ctx.cookieStore().get(key)
             if(stringUser == null) return null
-            else{
-                var user = jacksonObjectMapper().readValue<User>(stringUser)
-                return user
+            val user = jacksonObjectMapper().readValue<User>(stringUser)
+            return user
 
-            }
     }
 
 }
