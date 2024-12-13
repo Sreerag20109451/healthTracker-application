@@ -5,187 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/CookieController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_11_24,_7_15 pm_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_11_24,_7_16 pm_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_11_24__7_15pm__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_11_24__7_16pm__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthorizationController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthorizationController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/HealthRiskDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/domain/repository/HealthRiskDAO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/utills/cookies/CookieStore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/utills/cookies/CookieStore.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthIndicatorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthIndicatorTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserControllerTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-1/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-1/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-1/sources/source-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-1/sources/source-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-2/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-2/sources/source-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-2/sources/source-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-2/sources/source-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-2/sources/source-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/sources/source-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/sources/source-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/sources/source-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/sources/source-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/sources/source-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/sources/source-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/sources/source-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/sources/source-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/sources/source-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/sources/source-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/sources/source-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/sources/source-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-3/sources/source-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-3/sources/source-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/sources/source-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/sources/source-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/sources/source-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/sources/source-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/sources/source-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/sources/source-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/sources/source-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/sources/source-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/sources/source-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/sources/source-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/sources/source-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/sources/source-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-4/sources/source-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-4/sources/source-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/sources/source-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/sources/source-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/sources/source-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/sources/source-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/sources/source-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/sources/source-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/sources/source-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/sources/source-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/sources/source-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/sources/source-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-5/sources/source-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-5/sources/source-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/sources/source-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/sources/source-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/sources/source-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/sources/source-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/sources/source-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/sources/source-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/sources/source-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/sources/source-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-6/sources/source-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-6/sources/source-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-7/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-7/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-7/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-7/sources/source-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-7/sources/source-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-7/sources/source-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-7/sources/source-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-8/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-8/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-8/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-8/sources/source-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-8/sources/source-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-8/sources/source-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-8/sources/source-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-8/sources/source-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-8/sources/source-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-9/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-9/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-9/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-9/sources/source-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-9/sources/source-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-9/sources/source-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-9/sources/source-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-9/sources/source-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-9/sources/source-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-a/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-a/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-a/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-a/sources/source-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-a/sources/source-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-b/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-b/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-b/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-b/sources/source-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-b/sources/source-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-c/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-c/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_LINE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-c/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreport/ns-c/sources/source-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/unittestreport/ns-c/sources/source-1.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -333,7 +154,7 @@
       <recent name="org.agileSoftDev.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.kotlin in healthTracker">
+  <component name="RunManager">
     <configuration name="UserController$UserAddOperations.add users with invalid email and get a 400 response code" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
@@ -475,6 +296,8 @@
       <workItem from="1732915816032" duration="609000" />
       <workItem from="1733926221762" duration="2331000" />
       <workItem from="1733928562447" duration="13000" />
+      <workItem from="1733934702548" duration="3341000" />
+      <workItem from="1734029187842" duration="6741000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />
@@ -549,7 +372,7 @@
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/ActivtyControllerTest.kt</url>
           <line>90</line>
-          <properties class="org.agileSoftDev.testcontroller.ActivtyControllerTest.DeleteActivityOperations">
+          <properties class="org.agileSoftDev.testcontroller.ActivtyControllerTest.DeleteActivityOperations" method="&lt;init&gt;">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -558,7 +381,7 @@
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/repositiries/ActivityDAOtest.kt</url>
           <line>65</line>
-          <properties class="org.agileSoftDev.repositiries.ActivityDAOtest.ActivitiesDeleteOperations">
+          <properties class="org.agileSoftDev.repositiries.ActivityDAOtest.ActivitiesDeleteOperations" method="delete activities by userID">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -576,7 +399,7 @@
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserControllerTest.kt</url>
           <line>112</line>
-          <properties class="org.agileSoftDev.testcontroller.UserControllerTest.UserUpdateOperations" method="update users successfully and get a 200 response code with an admin user">
+          <properties class="org.agileSoftDev.testcontroller.UserControllerTest.UserUpdateOperations">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
