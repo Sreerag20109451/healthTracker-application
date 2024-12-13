@@ -22,9 +22,11 @@ class JavalinConfig {
 
     fun startJavalinInstance() : Javalin {
         val app = Javalin.create{ it.jsonMapper(JavalinJackson(jsonObjectMapper()))
-            it.staticFiles.enableWebjars()
-            it.vue.rootDirectory("/home/sreerag/setuESS/healthTracker-application/frontend/src/Vue", Location.EXTERNAL)
-            it.vue.vueInstanceNameInJs = "app"
+        it.bundledPlugins.enableCors{
+            cors -> cors.addRule{ crs ->
+                crs.anyHost()
+        }
+        }
         }.apply {  }.start(getRemoteAssignedPort())
         registerRoutes(app)
         return  app
@@ -147,7 +149,7 @@ class JavalinConfig {
         val remotePort = System.getenv("PORT")
         return if (remotePort != null) {
             Integer.parseInt(remotePort)
-        } else 8081
+        } else 8085
     }
 
 
