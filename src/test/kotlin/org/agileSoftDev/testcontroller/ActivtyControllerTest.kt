@@ -25,9 +25,13 @@ class ActivtyControllerTest {
             .asJson()
 
         var mapper = jacksonObjectMapper()
-        val resultMap : HashMap<String, String> = mapper.readValue(resp.body.toString())
+        val resultMap: HashMap<String, Any> = mapper.readValue(resp.body.toString())
 
-        return resultMap["token"]
+        // Remove the user object if it exists
+        resultMap.remove("user")
+
+        // Return the token from the resulting map
+        return resultMap["token"] as? String
     }
 
     @Nested

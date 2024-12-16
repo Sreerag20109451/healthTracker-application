@@ -25,7 +25,7 @@ class AuthenticationController {
                 else{
                     val token  = jwtObj.generateToken(user)
                     cookieStore.saveToCookieStore(ctx, User(user.id, user.name,user.email,user.password,user.role))
-                    ctx.status(200).json(mapOf(Pair("message" , "${user.name} is logged in"),Pair("token",token)))
+                    ctx.status(200).json(mapOf(Pair("message" , "${user.name} is logged in"),Pair("token",token),Pair("user",user)))
                 }
             }
             else{
