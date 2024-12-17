@@ -23,9 +23,8 @@ class UserControllerTest {
             .asJson()
 
         var mapper = jacksonObjectMapper()
-        val resultMap : HashMap<String, String> = mapper.readValue(resp.body.toString())
-
-        return resultMap["token"]
+        val resultMap: HashMap<String, Any> = mapper.readValue(resp.body.toString())
+        return resultMap["token"]  as String
     }
 
     @Nested
@@ -124,8 +123,7 @@ class UserControllerTest {
         fun `update a non existing user and return a 404 error`() {
             var token = Login("healthAdmin@hospital.com", "admin") //Admin User
             var body = "{\"name\":\"test_user\", \"email\":\"sdsd@mail.com\"}"
-            var response =
-                Unirest.put(domain + "/api/users/150").body(body).header("Authorization", "Bearer " + token).asString()
+            var response =  Unirest.put(domain + "/api/users/150").body(body).header("Authorization", "Bearer " + token).asString()
             assertEquals(404, response.status)
 
 

@@ -22,11 +22,9 @@ class HealthIndicatorTest {
 
         var resp = Unirest.post("$domain/api/login").body("{\"email\":\"$email\", \"password\":\"$password\"}")
             .asJson()
-
         var mapper = jacksonObjectMapper()
-        val resultMap : HashMap<String, String> = mapper.readValue(resp.body.toString())
-
-        return resultMap["token"]
+        val resultMap: HashMap<String, Any> = mapper.readValue(resp.body.toString())
+        return resultMap["token"]  as String
     }
     @Nested
     inner class HealthIndicatorsReadOperations{
