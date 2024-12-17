@@ -4,18 +4,21 @@ import io.javalin.http.Context
 import org.agileSoftDev.domain.User
 
 class AuthorizationController {
-
     private var cookieStore = CookieController()
-
     private fun CheckAdminRole(ctx: Context): Boolean {
-        if (cookieStore.getFromCookieStore(ctx, "user") == null) return false
+        println("checking for user")
+        println(" the user in cookie store is ${cookieStore.getFromCookieStore(ctx, "user")}")
+        if (cookieStore.getFromCookieStore(ctx, "user")==null) {
+            println("this is if no user found in server")
+            return false
+        }
         else {
+            println("Now it is working")
             val user = cookieStore.getFromCookieStore(ctx, "user")
             val role = user!!.role
             return role == "admin"
         }
     }
-
     fun checkSameUserloggedIn(ctx: Context): Boolean {
         if (cookieStore.getFromCookieStore(ctx, "user") == null) return false
         else {
@@ -26,10 +29,11 @@ class AuthorizationController {
         }
 
     }
-
      fun adminAndSameUserPrivilegeCheck(ctx: Context, function: (Context) -> Unit) {
         if(!CheckAdminRole(ctx)){
+           println("user is not admin")
             if (!checkSameUserloggedIn(ctx)) {
+                println("user is not same user either")
                 ctx.status(403).json(mapOf("message" to "Access denied!"))
             }
             else{

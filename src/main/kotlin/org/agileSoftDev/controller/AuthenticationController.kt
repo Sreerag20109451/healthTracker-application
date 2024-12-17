@@ -11,7 +11,7 @@ import org.agileSoftDev.utills.cookies.CookieStore
 class AuthenticationController {
     private var userDAO = UserDAO()
     private var jwtObj = JWTutils()
-    private var cookieStore = CookieStore()
+    private var cookieStore = CookieController()
 
     fun login(ctx: Context){ //all users
         try {
@@ -25,6 +25,7 @@ class AuthenticationController {
                 else{
                     val token  = jwtObj.generateToken(user)
                     cookieStore.saveToCookieStore(ctx, User(user.id, user.name,user.email,user.password,user.role))
+                    println(cookieStore.getFromCookieStore(ctx, "user"))
                     ctx.status(200).json(mapOf(Pair("message" , "${user.name} is logged in"),Pair("token",token),Pair("user",user)))
                 }
             }
@@ -33,6 +34,7 @@ class AuthenticationController {
             }
 
         }catch (e: Exception){
+            println(e.localizedMessage)
             ctx.status(500).json(mapOf(Pair("message","Error logging in, ${e.message}" )))
         }
 
