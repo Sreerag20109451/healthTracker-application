@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthIndicatorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthIndicatorTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +156,7 @@
       <recent name="org.agileSoftDev.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HealthIndicatorTest$HealthIndicatorsPostOperations.Return 404  when trying to add health indicator for an invalid user ">
+  <component name="RunManager">
     <configuration name="HealthIndicatorTest$HealthIndicatorsPostOperations.Return 404  when trying to add health indicator for an invalid user " type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
@@ -303,7 +303,7 @@
       <workItem from="1734435229102" duration="2143000" />
       <workItem from="1734437960509" duration="2521000" />
       <workItem from="1734441308476" duration="4042000" />
-      <workItem from="1734448488085" duration="451000" />
+      <workItem from="1734448488085" duration="1840000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />
