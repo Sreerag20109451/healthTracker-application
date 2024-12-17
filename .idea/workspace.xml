@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthenticationController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthenticationController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthorizationController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthorizationController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthIndicatorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthIndicatorTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,8 +156,8 @@
       <recent name="org.agileSoftDev.domain" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="ActivtyControllerTest$ActivitiesReadOperations.Successfully get all activities bu an admin user " type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.HealthIndicatorTest$HealthIndicatorsPostOperations.Return 404  when trying to add health indicator for an invalid user ">
+    <configuration name="HealthIndicatorTest$HealthIndicatorsPostOperations.Return 404  when trying to add health indicator for an invalid user " type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
         <pattern>
@@ -167,9 +165,9 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.ActivtyControllerTest" />
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.ActivtyControllerTest$ActivitiesReadOperations" />
-      <option name="METHOD_NAME" value="Successfully get all activities bu an admin user " />
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.HealthIndicatorTest" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.HealthIndicatorTest$HealthIndicatorsPostOperations" />
+      <option name="METHOD_NAME" value="Return 404  when trying to add health indicator for an invalid user " />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -217,11 +215,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserControllerTest$ReadUserOperations.get all users successfully with 200 statusCode with an admin user" />
+        <item itemvalue="JUnit.HealthIndicatorTest$HealthIndicatorsPostOperations.Return 404  when trying to add health indicator for an invalid user " />
         <item itemvalue="JUnit.kotlin in healthTracker" />
+        <item itemvalue="JUnit.UserControllerTest$ReadUserOperations.get all users successfully with 200 statusCode with an admin user" />
         <item itemvalue="JUnit.agileSoftDev in healthTracker" />
         <item itemvalue="JUnit.testcontroller in healthTracker" />
-        <item itemvalue="JUnit.ActivtyControllerTest$ActivitiesReadOperations.Successfully get all activities bu an admin user " />
       </list>
     </recent_temporary>
   </component>
@@ -304,7 +302,8 @@
       <workItem from="1734029187842" duration="6741000" />
       <workItem from="1734435229102" duration="2143000" />
       <workItem from="1734437960509" duration="2521000" />
-      <workItem from="1734441308476" duration="3780000" />
+      <workItem from="1734441308476" duration="4042000" />
+      <workItem from="1734448488085" duration="451000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />

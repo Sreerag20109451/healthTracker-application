@@ -70,7 +70,7 @@ class HealthIndicatorTest {
         fun `Return 404  when trying to add health indicator for an invalid user `(){
             var body = "{\"userid\":40,\"age\":26,\"height\":181,\"weight\":70,\"boxygen\":98,\"hdl\":61,\"ldl\":121,\"alt\":34,\"ast\":34,\"gfr\":80}"
             var token = Login("healthAdmin@hospital.com", "admin") //Admin User
-            var response = Unirest.post(domain + "/api/users/40/healthindicators").body(body).header("Authorization", "Bearer " + token).asString()
+            var response = Unirest.post(domain + "/api/users/404/healthindicators").body(body).header("Authorization", "Bearer " + token).asString()
             assertEquals(404, response.status)
         }
     }
