@@ -7,6 +7,9 @@
     <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthenticationController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthenticationController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthorizationController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthorizationController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/CookieController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/CookieController.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +107,8 @@
     &quot;JUnit.UserController.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserController.update a non existing user and return a 404 error.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserControllerTest$ReadUserOperations.get all users successfully with 200 statusCode with an admin user.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerTest$ReadUserOperations.get an error when accessing all users without a jwt token.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserDAOTest.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.activityDAOtest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.agileSoftDev in healthTracker (1).executor&quot;: &quot;Coverage&quot;,
@@ -189,10 +194,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="agileSoftDev in healthTracker" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest$ReadUserOperations.get an error when accessing all users without a jwt token" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.agileSoftDev.testcontroller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.UserControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.UserControllerTest$ReadUserOperations" />
+      <option name="METHOD_NAME" value="get an error when accessing all users without a jwt token" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -205,21 +218,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testcontroller in healthTracker" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.AppKt" />
       <module name="healthTracker" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.AppKt" />
+        <item itemvalue="JUnit.UserControllerTest$ReadUserOperations.get all users successfully with 200 statusCode with an admin user" />
+        <item itemvalue="JUnit.UserControllerTest$ReadUserOperations.get an error when accessing all users without a jwt token" />
         <item itemvalue="JUnit.HealthIndicatorTest$HealthIndicatorsPostOperations.Return 404  when trying to add health indicator for an invalid user " />
         <item itemvalue="JUnit.kotlin in healthTracker" />
-        <item itemvalue="JUnit.UserControllerTest$ReadUserOperations.get all users successfully with 200 statusCode with an admin user" />
-        <item itemvalue="JUnit.agileSoftDev in healthTracker" />
-        <item itemvalue="JUnit.testcontroller in healthTracker" />
       </list>
     </recent_temporary>
   </component>
@@ -304,6 +316,9 @@
       <workItem from="1734437960509" duration="2521000" />
       <workItem from="1734441308476" duration="4042000" />
       <workItem from="1734448488085" duration="3185000" />
+      <workItem from="1734453177573" duration="7151000" />
+      <workItem from="1734461039013" duration="660000" />
+      <workItem from="1734463438454" duration="753000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />

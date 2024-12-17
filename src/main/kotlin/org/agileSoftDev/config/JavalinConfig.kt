@@ -1,12 +1,10 @@
 package org.agileSoftDev.config
 
 import io.javalin.Javalin
-import io.javalin.http.staticfiles.Location
 import io.javalin.json.JavalinJackson
 import org.agileSoftDev.controller.*
 import org.agileSoftDev.utills.AuthenticationUtils.JWTutils
 import org.agileSoftDev.utills.AuthenticationUtils.jsonObjectMapper
-import org.postgresql.util.PSQLException
 
 class JavalinConfig {
     private val controller = UserController()
@@ -25,12 +23,11 @@ class JavalinConfig {
             it.jsonMapper(JavalinJackson(jsonObjectMapper()))
             it.bundledPlugins.enableCors { cors ->
                 cors.addRule { crs ->
-                    crs.allowHost("http://192.168.248.157:8080")
-                    crs.allowHost("https://frontend-healthtracker-production.up.railway.app")
                     crs.allowHost("http://localhost:8080")
                     crs.allowCredentials = true
                 }
             }
+
         }.apply { }.start(getRemoteAssignedPort())
         registerRoutes(app)
         return app

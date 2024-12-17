@@ -1,29 +1,44 @@
 package org.agileSoftDev.controller
 
+import CookieController
 import io.javalin.http.Context
 import org.agileSoftDev.domain.User
+import org.agileSoftDev.domain.repository.UserDAO
 
 class AuthorizationController {
+    private val userDAO = UserDAO()
     private var cookieStore = CookieController()
+    private fun sessionUser(ctx: Context) : User? {
+
+        val sessionID = ctx.header("Sessionid")
+        if (sessionID != null) {
+            return  userDAO.getUserById(sessionID.toInt())
+        }
+        return null
+    }
+
     private fun CheckAdminRole(ctx: Context): Boolean {
+        val sessionUser = sessionUser(ctx)
         println("checking for user")
-        println(" the user in cookie store is ${cookieStore.getFromCookieStore(ctx, "user")}")
-        if (cookieStore.getFromCookieStore(ctx, "user")==null) {
+        println(" the user in cookie store is ${sessionUser}")
+
+        println(sessionUser)
+        if (sessionUser ==null) {
             println("this is if no user found in server")
             return false
         }
         else {
             println("Now it is working")
-            val user = cookieStore.getFromCookieStore(ctx, "user")
-            val role = user!!.role
+            val role = sessionUser.role
             return role == "admin"
         }
     }
     fun checkSameUserloggedIn(ctx: Context): Boolean {
-        if (cookieStore.getFromCookieStore(ctx, "user") == null) return false
+        val sessionUser = sessionUser(ctx)
+        if (sessionUser == null) return false
         else {
             val userIDResourceBeingchecked = ctx.pathParam("userID").toInt()
-            val userIDloggedIn = cookieStore.getFromCookieStore(ctx, "user")?.id
+            val userIDloggedIn = sessionUser.id
             return userIDResourceBeingchecked == userIDloggedIn
 
         }
