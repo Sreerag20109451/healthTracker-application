@@ -20,7 +20,7 @@ class UserController {
 
     fun getAllUsers(ctx: Context)  {      //AdminPrivilege+ Authentication required
             var users = userDAO.allUsers()
-            if(users != null) ctx.json(200).json(mapOf(Pair("message","success"),Pair("data", users)))
+            if(users != null) ctx.status(200).json(mapOf(Pair("message","success"),Pair("data", users)))
             else ctx.status(200).json(mapOf("message" to "No users found"))
     }
     fun getUserById(ctx: Context) {   //AdminPrivilege + Authentication required
