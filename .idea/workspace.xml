@@ -7,9 +7,10 @@
     <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthenticationController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthenticationController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthorizationController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/AuthorizationController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/CookieController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/CookieController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/ActivtyControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/ActivtyControllerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthIndicatorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthIndicatorTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthrisksControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthrisksControllerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserControllerTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +107,10 @@
     &quot;JUnit.UserController$UserUpdateOperations.update users successfully and get a 200 response code with an admin user.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserController.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserController.update a non existing user and return a 404 error.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerTest$GetAUserResourcesByID.get a userdetail successfully with 200 statusCode with an admin user.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerTest$GetAUserResourcesByID.get user resource when accessing with the same user.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserControllerTest$ReadUserOperations.get all users successfully with 200 statusCode with an admin user.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerTest$ReadUserOperations.get an error when accessing all users with a normal user(Not admin).executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserControllerTest$ReadUserOperations.get an error when accessing all users without a jwt token.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserDAOTest.executor&quot;: &quot;Coverage&quot;,
@@ -161,8 +165,8 @@
       <recent name="org.agileSoftDev.domain" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="HealthIndicatorTest$HealthIndicatorsPostOperations.Return 404  when trying to add health indicator for an invalid user " type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.kotlin in healthTracker">
+    <configuration name="ActivtyControllerTest$ActivitiesReadOperations.Successfully get all activities bu an admin user " type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
         <pattern>
@@ -170,15 +174,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.HealthIndicatorTest" />
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.HealthIndicatorTest$HealthIndicatorsPostOperations" />
-      <option name="METHOD_NAME" value="Return 404  when trying to add health indicator for an invalid user " />
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.ActivtyControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.ActivtyControllerTest$ActivitiesReadOperations" />
+      <option name="METHOD_NAME" value="Successfully get all activities bu an admin user " />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest$ReadUserOperations.get all users successfully with 200 statusCode with an admin user" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ActivtyControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
         <pattern>
@@ -186,15 +190,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.UserControllerTest" />
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.UserControllerTest$ReadUserOperations" />
-      <option name="METHOD_NAME" value="get all users successfully with 200 statusCode with an admin user" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.ActivtyControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest$ReadUserOperations.get an error when accessing all users without a jwt token" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HealthIndicatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
         <pattern>
@@ -202,10 +205,24 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller.UserControllerTest" />
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.UserControllerTest$ReadUserOperations" />
-      <option name="METHOD_NAME" value="get an error when accessing all users without a jwt token" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.HealthIndicatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HealthrisksControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthTracker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.agileSoftDev.testcontroller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller" />
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.HealthrisksControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -218,20 +235,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.AppKt" />
-      <module name="healthTracker" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.AppKt" />
-        <item itemvalue="JUnit.UserControllerTest$ReadUserOperations.get all users successfully with 200 statusCode with an admin user" />
-        <item itemvalue="JUnit.UserControllerTest$ReadUserOperations.get an error when accessing all users without a jwt token" />
-        <item itemvalue="JUnit.HealthIndicatorTest$HealthIndicatorsPostOperations.Return 404  when trying to add health indicator for an invalid user " />
         <item itemvalue="JUnit.kotlin in healthTracker" />
+        <item itemvalue="JUnit.ActivtyControllerTest" />
+        <item itemvalue="JUnit.ActivtyControllerTest$ActivitiesReadOperations.Successfully get all activities bu an admin user " />
+        <item itemvalue="JUnit.HealthIndicatorTest" />
+        <item itemvalue="JUnit.HealthrisksControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -318,7 +328,9 @@
       <workItem from="1734448488085" duration="3185000" />
       <workItem from="1734453177573" duration="7151000" />
       <workItem from="1734461039013" duration="660000" />
-      <workItem from="1734463438454" duration="753000" />
+      <workItem from="1734463438454" duration="1586000" />
+      <workItem from="1734466444170" duration="2909000" />
+      <workItem from="1734528697772" duration="1526000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />
@@ -374,7 +386,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserControllerTest.kt</url>
-          <line>110</line>
+          <line>131</line>
           <properties class="org.agileSoftDev.testcontroller.UserControllerTest.UserUpdateOperations" method="update users successfully and get a 200 response code with an admin user">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -383,7 +395,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserControllerTest.kt</url>
-          <line>125</line>
+          <line>151</line>
           <properties class="org.agileSoftDev.testcontroller.UserControllerTest.UserUpdateOperations">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -392,7 +404,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/ActivtyControllerTest.kt</url>
-          <line>89</line>
+          <line>107</line>
           <properties class="org.agileSoftDev.testcontroller.ActivtyControllerTest.DeleteActivityOperations" method="&lt;init&gt;">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -410,7 +422,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthIndicatorTest.kt</url>
-          <line>69</line>
+          <line>84</line>
           <properties class="org.agileSoftDev.testcontroller.HealthIndicatorTest.HealthIndicatorsPostOperations" method="Return 404  when trying to add health indicator for an invalid user ">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -419,8 +431,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserControllerTest.kt</url>
-          <line>111</line>
-          <properties class="org.agileSoftDev.testcontroller.UserControllerTest.UserUpdateOperations">
+          <line>132</line>
+          <properties class="org.agileSoftDev.testcontroller.UserControllerTest.UserUpdateOperations" method="update users successfully and get a 200 response code with an admin user">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -434,6 +446,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserControllerTest.kt</url>
+          <line>41</line>
+          <properties class="org.agileSoftDev.testcontroller.UserControllerTest.ReadUserOperations" method="get all users successfully with 200 statusCode with an admin user">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />

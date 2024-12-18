@@ -24,6 +24,7 @@ class JavalinConfig {
             it.bundledPlugins.enableCors { cors ->
                 cors.addRule { crs ->
                     crs.allowHost("http://localhost:8080")
+                    crs.allowHost("https://frontend-healthtracker-production.up.railway.app/")
                     crs.allowCredentials = true
                 }
             }

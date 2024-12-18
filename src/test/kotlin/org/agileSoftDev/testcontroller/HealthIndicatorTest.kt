@@ -18,35 +18,48 @@ class HealthIndicatorTest {
 
     val adminUser =  User(name= "Sreerag Sathian", email = "20109451@mail.wit.ie", id = 5, role = "admin", password = "admin")
 
-    private fun Login(email: String, password: String): String?{
+    private fun Login(email: String, password: String): Map<String, String> {
 
         var resp = Unirest.post("$domain/api/login").body("{\"email\":\"$email\", \"password\":\"$password\"}")
             .asJson()
+
         var mapper = jacksonObjectMapper()
         val resultMap: HashMap<String, Any> = mapper.readValue(resp.body.toString())
-        return resultMap["token"]  as String
+        var user = mapper.convertValue<User>(resultMap["user"] ,User::class.java)
+        println(user)
+        val sessionId = user.id.toString()
+        val token = resultMap["token"] as String
+
+        var loginReturns  =  mapOf(Pair("token", token),Pair("sessionId", sessionId))
+        return loginReturns
+
     }
     @Nested
     inner class HealthIndicatorsReadOperations{
 
         @Test
         fun `Successfully return user health indicators with the same user`(){
-
-            var token = Login("20109451@mail.wit.ie", "test")
-            var response = Unirest.get(domain + "/api/users/1/healthindicators").header("Authorization", "Bearer " + token).asString()
+            var map = Login("20109451@mail.wit.ie", "test")
+            var token = map["token"]
+            var sessionId = map["sessionId"]
+            var response = Unirest.get(domain + "/api/users/1/healthindicators").header("Authorization", "Bearer " + token).header("Sessionid",sessionId).asString()
             assertEquals(200, response.status)
         }
         @Test
         fun `Successfully return user health indicators with admin`(){
-            var token = Login("healthAdmin@hospital.com", "admin") //Admin User
-            var response = Unirest.get(domain + "/api/users/1/healthindicators").header("Authorization", "Bearer " + token).asString()
+            var map = Login("healthAdmin@hospital.com", "admin") //Admin User
+            var token = map["token"]
+            var sessionId = map["sessionId"]
+            var response = Unirest.get(domain + "/api/users/1/healthindicators").header("Authorization", "Bearer " + token).header("Sessionid",sessionId).asString()
             assertEquals(200, response.status)
         }
         @Test
         fun `Return 403 error when accessing health indicator data for different user`(){
 
-            var token = Login("20109451@mail.wit.ie", "test")
-            var response = Unirest.get(domain + "/api/users/2/healthindicators").header("Authorization", "Bearer " + token).asString()
+            var map = Login("20109451@mail.wit.ie", "test")
+            var token = map["token"]
+            var sessionId = map["sessionId"]
+            var response = Unirest.get(domain + "/api/users/2/healthindicators").header("Authorization", "Bearer " + token).header("Sessionid",sessionId).asString()
             assertEquals(403, response.status)
         }
     }
@@ -55,8 +68,10 @@ class HealthIndicatorTest {
          @Test
         fun `Return 403 error when trying to add health indicator by the same non admin user`(){
             var body = "{\"userid\":1,\"age\":26,\"height\":181,\"weight\":70,\"boxygen\":98,\"hdl\":61,\"ldl\":121,\"alt\":34,\"ast\":34,\"gfr\":80}"
-             var token = Login("20109451@mail.wit.ie", "test")
-             var response = Unirest.post(domain + "/api/users/1/healthindicators").body(body).header("Authorization", "Bearer " + token).asString()
+             var map = Login("20109451@mail.wit.ie", "test")
+             var token = map["token"]
+             var sessionId = map["sessionId"]
+             var response = Unirest.post(domain + "/api/users/1/healthindicators").body(body).header("Authorization", "Bearer " + token).header("Sessionid",sessionId).asString()
              assertEquals(403, response.status)
         }
 //        @Test
@@ -69,9 +84,11 @@ class HealthIndicatorTest {
         @Test
         fun `Return 404  when trying to add health indicator for an invalid user `(){
             var body = "{\"userid\":40,\"age\":26,\"height\":181,\"weight\":70,\"boxygen\":98,\"hdl\":61,\"ldl\":121,\"alt\":34,\"ast\":34,\"gfr\":80}"
-            var token = Login("healthAdmin@hospital.com", "admin") //Admin User
-            var response = Unirest.post(domain + "/api/users/404/healthindicators").body(body).header("Authorization", "Bearer " + token).asString()
-            assertEquals(404, response.status)
+            var map = Login("healthAdmin@hospital.com", "admin") //Admin User
+              var token = map["token"]
+                var sessionId = map["sessionId"]
+            var response = Unirest.post(domain + "/api/users/404/healthindicators").body(body).header("Authorization", "Bearer " + token).header("Sessionid",sessionId).asString()
+    assertEquals(404, response.status)
         }
     }
 

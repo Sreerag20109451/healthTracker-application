@@ -17,13 +17,20 @@ class HealthrisksControllerTest {
 
     val adminUser =  User(name= "Sreerag Sathian", email = "20109451@mail.wit.ie", id = 5, role = "admin", password = "admin")
 
-    private fun Login(email: String, password: String): String?{
+    private fun Login(email: String, password: String): Map<String, String> {
 
         var resp = Unirest.post("$domain/api/login").body("{\"email\":\"$email\", \"password\":\"$password\"}")
             .asJson()
+
         var mapper = jacksonObjectMapper()
         val resultMap: HashMap<String, Any> = mapper.readValue(resp.body.toString())
-        return resultMap["token"]  as String
+        var user = mapper.convertValue<User>(resultMap["user"] ,User::class.java)
+        val sessionId = user.id.toString()
+        val token = resultMap["token"] as String
+
+        var loginReturns  =  mapOf(Pair("token", token),Pair("sessionId", sessionId))
+        return loginReturns
+
     }
 
 
@@ -32,15 +39,19 @@ class HealthrisksControllerTest {
 
         @Test
         fun `Get health risks successfully from a unhealthy user`(){
-            var token = Login("healthAdmin@hospital.com", "admin") //Admin User
-            var response = Unirest.get(domain + "/api/users/2/risks").header("Authorization", "Bearer " + token).asString()
+            var map = Login("healthAdmin@hospital.com", "admin") //Admin User
+            val token = map["token"]
+            val sessionId = map["sessionId"]
+            var response = Unirest.get(domain + "/api/users/2/risks").header("Authorization", "Bearer " + token).header("Sessionid",sessionId).asString()
             assertEquals(200, response.status)
             assert(response.body.toString().contains("Health risks found for user"))
         }
         @Test
         fun `Get no health risks from a healthy user`(){
-            var token = Login("healthAdmin@hospital.com", "admin") //Admin User
-            var response = Unirest.get(domain + "/api/users/1/risks").header("Authorization", "Bearer " + token).asString()
+            var map = Login("healthAdmin@hospital.com", "admin") //Admin User
+            val token = map["token"]
+            val sessionId = map["sessionId"]
+            var response = Unirest.get(domain + "/api/users/1/risks").header("Authorization", "Bearer " + token).header("Sessionid",sessionId).asString()
             assertEquals(200, response.status)
             assert(response.body.toString().contains("No health risks found for user"))
 
@@ -52,15 +63,19 @@ class HealthrisksControllerTest {
     inner class diets{
       @Test
         fun `Get diets successfully for a unhealthy user`(){
-            var token = Login("healthAdmin@hospital.com", "admin") //Admin User
-            var response = Unirest.get(domain + "/api/users/2/diets").header("Authorization", "Bearer " + token).asString()
+            var map = Login("healthAdmin@hospital.com", "admin") //Admin User
+          val token = map["token"]
+          val sessionId = map["sessionId"]
+            var response = Unirest.get(domain + "/api/users/2/diets").header("Authorization", "Bearer " + token).header("Sessionid",sessionId).asString()
             assertEquals(200, response.status)
             assert(response.body.toString().contains("Diets are found"))
         }
         @Test
         fun `Get no diets for a healthy user`(){
-            var token = Login("healthAdmin@hospital.com", "admin") //Admin User
-            var response = Unirest.get(domain + "/api/users/1/diets").header("Authorization", "Bearer " + token).asString()
+            var map = Login("healthAdmin@hospital.com", "admin") //Admin User
+            val token = map["token"]
+            val sessionId = map["sessionId"]
+            var response = Unirest.get(domain + "/api/users/1/diets").header("Authorization", "Bearer " + token).header("Sessionid",sessionId).asString()
             assertEquals(200, response.status)
             assert(response.body.toString().contains("No diets required"))
 
