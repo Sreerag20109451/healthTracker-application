@@ -7,10 +7,6 @@
     <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/ActivtyControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/ActivtyControllerTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthIndicatorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthIndicatorTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthrisksControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/HealthrisksControllerTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/org/agileSoftDev/testcontroller/UserControllerTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +161,7 @@
       <recent name="org.agileSoftDev.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.kotlin in healthTracker">
+  <component name="RunManager">
     <configuration name="ActivtyControllerTest$ActivitiesReadOperations.Successfully get all activities bu an admin user " type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
@@ -330,7 +326,7 @@
       <workItem from="1734461039013" duration="660000" />
       <workItem from="1734463438454" duration="1586000" />
       <workItem from="1734466444170" duration="2909000" />
-      <workItem from="1734528697772" duration="1526000" />
+      <workItem from="1734528697772" duration="3108000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />
