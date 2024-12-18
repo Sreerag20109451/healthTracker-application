@@ -23,8 +23,9 @@ class JavalinConfig {
             it.jsonMapper(JavalinJackson(jsonObjectMapper()))
             it.bundledPlugins.enableCors { cors ->
                 cors.addRule { crs ->
-                    crs.anyHost()
-                    crs.defaultScheme.equals("https", ignoreCase = true)
+                    crs.allowHost("http://localhost:8080")
+                    crs.allowCredentials =true
+                    crs.defaultScheme="http"
                 }
             }
 
