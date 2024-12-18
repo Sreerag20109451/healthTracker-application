@@ -22,13 +22,8 @@ class JavalinConfig {
         val app = Javalin.create {
             it.jsonMapper(JavalinJackson(jsonObjectMapper()))
             it.bundledPlugins.enableCors { cors ->
-                cors.addRule { crs ->
-                    crs.allowHost("http://localhost:8080/")
-                    crs.allowCredentials = true
-
-                }
-                cors.addRule { crs ->
-                    crs.allowHost("https://frontend-healthtracker-production.up.railway.app/")
+             cors.addRule{ crs ->
+                    crs.allowHost("http://localhost:8080/","https://frontend-healthtracker-production.up.railway.app/")
                     crs.allowCredentials = true
                 }
             }
