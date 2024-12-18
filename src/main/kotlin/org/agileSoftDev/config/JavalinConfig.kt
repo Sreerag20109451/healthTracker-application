@@ -23,7 +23,13 @@ class JavalinConfig {
             it.jsonMapper(JavalinJackson(jsonObjectMapper()))
             it.bundledPlugins.enableCors { cors ->
                 cors.addRule { crs ->
-                    crs.anyHost()
+                    crs.allowHost("http://localhost:8080/")
+                    crs.allowCredentials = true
+
+                }
+                cors.addRule { crs ->
+                    crs.allowHost("https://frontend-healthtracker-production.up.railway.app/")
+                    crs.allowCredentials = true
                 }
             }
 
