@@ -24,6 +24,7 @@ class JavalinConfig {
             it.bundledPlugins.enableCors { cors ->
                 cors.addRule { crs ->
                     crs.anyHost()
+                    crs.defaultScheme.equals("https", ignoreCase = true)
                 }
             }
 
