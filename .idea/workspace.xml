@@ -7,6 +7,7 @@
     <list default="true" id="99b9ec51-875c-40be-86fd-531302ee9632" name="Changes" comment="Add remaining CRUD operations to the User Model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/config/JavalinConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/agileSoftDev/controller/UserController.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +162,7 @@
       <recent name="org.agileSoftDev.domain" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Kotlin.AppKt">
     <configuration name="ActivtyControllerTest$ActivitiesReadOperations.Successfully get all activities bu an admin user " type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <extension name="coverage">
@@ -208,21 +209,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HealthrisksControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="healthTracker" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.agileSoftDev.testcontroller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.agileSoftDev.testcontroller" />
-      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.testcontroller.HealthrisksControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="kotlin in healthTracker" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthTracker" />
       <option name="TEST_OBJECT" value="directory" />
@@ -231,21 +217,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.agileSoftDev.AppKt" />
+      <module name="healthTracker" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.AppKt" />
         <item itemvalue="JUnit.kotlin in healthTracker" />
         <item itemvalue="JUnit.ActivtyControllerTest" />
         <item itemvalue="JUnit.ActivtyControllerTest$ActivitiesReadOperations.Successfully get all activities bu an admin user " />
         <item itemvalue="JUnit.HealthIndicatorTest" />
-        <item itemvalue="JUnit.HealthrisksControllerTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.145" />
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.145" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
       </set>
     </attachedChunks>
   </component>
@@ -328,7 +321,10 @@
       <workItem from="1734466444170" duration="2909000" />
       <workItem from="1734528697772" duration="3108000" />
       <workItem from="1734539430599" duration="1002000" />
-      <workItem from="1734543757674" duration="3695000" />
+      <workItem from="1734543757674" duration="5855000" />
+      <workItem from="1734620522700" duration="1916000" />
+      <workItem from="1734701266548" duration="2322000" />
+      <workItem from="1734973824486" duration="4076000" />
     </task>
     <task id="LOCAL-00001" summary="Add main class for deployment">
       <option name="closed" value="true" />

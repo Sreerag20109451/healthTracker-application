@@ -25,6 +25,8 @@ class UserController {
     }
     fun getUserById(ctx: Context) {   //AdminPrivilege + Authentication required
         val user = userDAO.getUserById(ctx.pathParam("userID").toInt())
+        println(user)
+        println("its here")
         if (user != null) ctx.status(200).json(mapOf(Pair("message","success"),Pair("data", user)))
         else ctx.status(404).json(mapOf(Pair("message","No user found"),Pair("data", null)))
     }
@@ -38,6 +40,7 @@ class UserController {
      try{
          val mapper = jacksonObjectMapper()
          var user = mapper.readValue<User>(ctx.body())
+         println(user)
          if(!isValidEmail(user.email)) {
              ctx.status(400)
              return

@@ -28,7 +28,8 @@ class JavalinConfig {
                 }
             }
 
-        }.apply { }.start(getRemoteAssignedPort())
+        }.apply {
+        }.start(getRemoteAssignedPort())
         registerRoutes(app)
         return app
     }
@@ -61,7 +62,7 @@ class JavalinConfig {
         }
 
         app.put("/api/users/{userID}") { ctx ->
-            if (jwtObj.verifyTokens(ctx)) accessController.adminOnlyPrivilegeCheck(ctx, controller::updateUser)
+            if (jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(ctx, controller::updateUser)
             else ctx.status(401).json(mapOf("message" to "Authentication Error, invalid token"))
         }
 
