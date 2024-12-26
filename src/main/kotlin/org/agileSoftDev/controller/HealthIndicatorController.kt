@@ -18,6 +18,7 @@ class HealthIndicatorController {
 
          val healthIndicator: HealthIndicator = mapper.readValue<HealthIndicator>(ctx.body())
          var userID = ctx.pathParam("userID").toInt()
+         healthIndicatorDAO.deleteIndicatorsForUser(userID)
          var user = userDAO.getUserById(userID)
          if (user == null) {
              ctx.status(404).json(mapOf(Pair("message", "User not found")))

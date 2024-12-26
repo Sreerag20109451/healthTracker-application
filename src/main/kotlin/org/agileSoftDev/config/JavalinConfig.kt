@@ -51,7 +51,7 @@ class JavalinConfig {
             else ctx.status(401).json(mapOf("message" to "Authentication error, invalid token!"))
         }
         app.get("/api/users/{userID}/details") { ctx ->
-            if (jwtObj.verifyTokens(ctx)) accessController.adminOnlyPrivilegeCheck(ctx, controller::getDetails)
+            if (jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(ctx, controller::getDetails)
             else ctx.status(401).json(mapOf("message" to "Authentication error, invalid token!"))
         }
 

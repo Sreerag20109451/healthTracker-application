@@ -17,7 +17,6 @@ class UserController {
     private val healthIndicatorDAO = HealthIndicatorDAO()
     private val healthRiskDAO = HealthRiskDAO()
     private val dietDAO = DietsDAO()
-
     fun getAllUsers(ctx: Context)  {      //AdminPrivilege+ Authentication required
             var users = userDAO.allUsers()
             if(users != null) ctx.status(200).json(mapOf(Pair("message","success"),Pair("data", users)))
@@ -60,7 +59,6 @@ class UserController {
            val userID = ctx.pathParam("userID").toInt()
            var user = userDAO.getUserById(userID)
            if (user != null) {
-
                userDAO.deleteUserById(userID)
                ctx.status(200).json(mapOf("message" to "User deleted"))
            }

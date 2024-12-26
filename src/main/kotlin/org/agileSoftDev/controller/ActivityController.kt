@@ -21,7 +21,7 @@ class ActivityController {
     fun getAllActivities(ctx: Context) { //Admin privilege + authentication required
         val activities = writeAsString { activityDAO.getAllActivities() }
         if(activities != null) ctx.status(200).json(mapOf(Pair("message" , "Success"),Pair("data", activities)))
-        else  ctx.status(404).json(mapOf(Pair("message" , "No activities found"),Pair("data", activities)))
+        else  ctx.status(200).json(mapOf(Pair("message" , "No activities found"),Pair("data", activities)))
     }
     fun getActivityByUser(ctx: Context) { //Same user privilege
         var userId = ctx.pathParam("userID").toInt()
@@ -29,7 +29,7 @@ class ActivityController {
         if (activities.size > 0) {
             val parsedActivities = writeAsString { activities }
             ctx.status(200).json(mapOf(Pair("message", "Success"), Pair("data", activities)))
-        } else ctx.status(404).json(mapOf(Pair("message", "No activities found for the user"), Pair("data", null)))
+        } else ctx.status(200).json(mapOf(Pair("message", "No activities found for the user"), Pair("data", null)))
     }
     fun addactivity(ctx: Context) { //Same user privilege
         try {
