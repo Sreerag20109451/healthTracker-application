@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > User</title>
+  <title>Coverage Report > UserController</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -19,21 +19,22 @@
 <div class="breadCrumbs">
 Current scope:     <a href="../../index.html">all classes</a>
     <span class="separator">|</span>
-    <a href="../index.html">org.agileSoftDev.domain</a>
+    <a href="../index.html">org.agileSoftDev.controller</a>
 </div>
 
-<h1>Coverage Summary for Class: User (org.agileSoftDev.domain)</h1>
+<h1>Coverage Summary for Class: UserController (org.agileSoftDev.controller)</h1>
 
 <table class="coverageStats">
+
 <tr>
   <th class="name">Class</th>
 <th class="coverageStat 
 ">
-  Class, %
+  Method, %
 </th>
 <th class="coverageStat 
 ">
-  Method, %
+  Branch, %
 </th>
 <th class="coverageStat 
 ">
@@ -41,33 +42,97 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">User</td>
+  <td class="name">UserController</td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    75%
   </span>
   <span class="absValue">
-    (1/1)
+    (6/8)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    53.8%
   </span>
   <span class="absValue">
-    (1/1)
+    (14/26)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    70.2%
   </span>
   <span class="absValue">
-    (1/1)
+    (40/57)
   </span>
 </td>
 </tr>
-
+  <tr>
+    <td class="name">UserController$createUser$$inlined$readValue$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">UserController$updateUser$$inlined$readValue$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (8/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    53.8%
+  </span>
+  <span class="absValue">
+    (14/26)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    71.2%
+  </span>
+  <span class="absValue">
+    (42/59)
+  </span>
+</td>
+</tr>
 </table>
 
 <br/>
@@ -75,11 +140,122 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.domain
+<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.controller
+&nbsp;
+&nbsp;import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+&nbsp;import com.fasterxml.jackson.module.kotlin.readValue
+&nbsp;import io.javalin.http.Context
+&nbsp;import org.agileSoftDev.domain.ReadUser
+&nbsp;import org.agileSoftDev.domain.User
+&nbsp;import org.agileSoftDev.domain.repository.*
+&nbsp;import org.agileSoftDev.utills.Enums.checkRole
+&nbsp;import org.agileSoftDev.utills.isValidEmail
+&nbsp;import org.agileSoftDev.utills.validEmailStructure
+&nbsp;import org.postgresql.util.PSQLException
+&nbsp;
+<b class="fc">&nbsp;class UserController {</b>
+<b class="fc">&nbsp;    private val userDAO = UserDAO()</b>
+<b class="fc">&nbsp;    private val activityDAO = ActivityDAO()</b>
+<b class="fc">&nbsp;    private val healthIndicatorDAO = HealthIndicatorDAO()</b>
+<b class="fc">&nbsp;    private val healthRiskDAO = HealthRiskDAO()</b>
+<b class="fc">&nbsp;    private val dietDAO = DietsDAO()</b>
+&nbsp;    fun getAllUsers(ctx: Context)  {      //AdminPrivilege+ Authentication required
+<b class="fc">&nbsp;            var users = userDAO.allUsers()</b>
+<b class="pc">&nbsp;            if(users != null) ctx.status(200).json(mapOf(Pair(&quot;message&quot;,&quot;success&quot;),Pair(&quot;data&quot;, users)))</b>
+<b class="fc">&nbsp;            else ctx.status(200).json(mapOf(&quot;message&quot; to &quot;No users found&quot;))</b>
+&nbsp;    }
+&nbsp;    fun getUserById(ctx: Context) {   //AdminPrivilege + Authentication required
+<b class="fc">&nbsp;        val user = userDAO.getUserById(ctx.pathParam(&quot;userID&quot;).toInt())</b>
+<b class="fc">&nbsp;        println(user)</b>
+<b class="fc">&nbsp;        println(&quot;its here&quot;)</b>
+<b class="fc">&nbsp;        if (user != null) ctx.status(200).json(mapOf(Pair(&quot;message&quot;,&quot;success&quot;),Pair(&quot;data&quot;, user)))</b>
+<b class="fc">&nbsp;        else ctx.status(404).json(mapOf(Pair(&quot;message&quot;,&quot;No user found&quot;),Pair(&quot;data&quot;, null)))</b>
+&nbsp;    }
+&nbsp;    fun findUserByEmail(ctx: Context) { //AdminPrivilege + Authentication required
+<b class="nc">&nbsp;        val email = ctx.pathParam(&quot;email&quot;)</b>
+<b class="nc">&nbsp;        val user = userDAO.findByEmail(email)</b>
+<b class="nc">&nbsp;        if(user != null) ctx.status(200).json(mapOf(Pair(&quot;message&quot;,&quot;success&quot;),Pair(&quot;data&quot;, user)))</b>
+<b class="nc">&nbsp;        else  ctx.status(404).json(mapOf(Pair(&quot;message&quot;,&quot;No user found&quot;),Pair(&quot;data&quot;, null)))</b>
+&nbsp;    }
+&nbsp;    fun createUser(ctx: Context) {   // Authentication required
+&nbsp;     try{
+<b class="fc">&nbsp;         val mapper = jacksonObjectMapper()</b>
+<b class="fc">&nbsp;         var user = mapper.readValue&lt;User&gt;(ctx.body())</b>
+<b class="fc">&nbsp;         println(user)</b>
+<b class="fc">&nbsp;         if(!isValidEmail(user.email)) {</b>
+<b class="fc">&nbsp;             ctx.status(400)</b>
+&nbsp;             return
+&nbsp;         }
+<b class="pc">&nbsp;         if(!checkRole(user.role)) ctx.status(400).json(mapOf(&quot;message&quot; to &quot;Error, the user cannot have this role&quot;))</b>
+&nbsp;         else{
+<b class="fc">&nbsp;             userDAO.addUser(user)</b>
+<b class="fc">&nbsp;             ctx.status(201).json(mapOf(&quot;message&quot; to &quot;User created&quot;))</b>
+<b class="fc">&nbsp;         }</b>
+&nbsp;     }
+&nbsp;     catch (e : Exception) {
+<b class="nc">&nbsp;         ctx.status(500).json(mapOf(&quot;message&quot; to &quot;Error creating user, ${e.message}&quot;))</b>
+&nbsp;     }
+&nbsp;    }
+&nbsp;    fun deleteUser(ctx: Context) {  //Same user privilege + authentication required
+&nbsp;       try {
+<b class="fc">&nbsp;           val userID = ctx.pathParam(&quot;userID&quot;).toInt()</b>
+<b class="fc">&nbsp;           var user = userDAO.getUserById(userID)</b>
+<b class="fc">&nbsp;           if (user != null) {</b>
+<b class="fc">&nbsp;               userDAO.deleteUserById(userID)</b>
+<b class="fc">&nbsp;               ctx.status(200).json(mapOf(&quot;message&quot; to &quot;User deleted&quot;))</b>
+&nbsp;           }
+<b class="fc">&nbsp;           else ctx.status(404).json(mapOf(&quot;message&quot; to &quot;Error, User not found&quot;))</b>
+&nbsp;       }
+&nbsp;       catch (e : PSQLException) {
+<b class="nc">&nbsp;           ctx.status(500).json(mapOf(&quot;message&quot; to &quot;User deleteion unscuccesfull&quot;))</b>
+&nbsp;       }
+&nbsp;    }
+&nbsp;    fun updateUser(ctx: Context) { //Same user privilege + authentication required
+&nbsp;        try {
+<b class="fc">&nbsp;                val userId = ctx.pathParam(&quot;userID&quot;).toInt()</b>
+<b class="fc">&nbsp;                if (userId != null) {</b>
+<b class="fc">&nbsp;                    val userFound = userDAO.getUserById(userId)</b>
+<b class="fc">&nbsp;                    if(userFound == null) {</b>
+<b class="fc">&nbsp;                        ctx.status(404).json(mapOf(Pair(&quot;status&quot;, &quot;Failed&quot;), Pair(&quot;message&quot;, &quot;User not found&quot;)))</b>
+&nbsp;                    }
+&nbsp;                    else{
+<b class="fc">&nbsp;                        val mapper = jacksonObjectMapper()</b>
+<b class="fc">&nbsp;                        var user = mapper.readValue&lt;ReadUser&gt;(ctx.body())</b>
+<b class="pc">&nbsp;                        if( user.email != null &amp;&amp; !validEmailStructure(user.email!!)) {</b>
+<b class="nc">&nbsp;                            ctx.status(400)</b>
+&nbsp;                            return
+&nbsp;                        }
+<b class="pc">&nbsp;                        userFound!!.email = user.email?:userFound.email</b>
+<b class="pc">&nbsp;                        userFound!!.name = user.name?:userFound.name</b>
+<b class="fc">&nbsp;                        userDAO.updateUser(userId, userFound)</b>
+<b class="fc">&nbsp;                        ctx.status(200).json(mapOf(&quot;message&quot; to &quot;User updated&quot;))</b>
+&nbsp;                    }
+&nbsp;            }
+&nbsp;        }
+&nbsp;        catch (e : PSQLException) {
+<b class="nc">&nbsp;            ctx.status(500).json(mapOf(&quot;message&quot; to &quot;User updation unsuccesful, ${e.message}&quot;))</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    fun getDetails(ctx: Context){
+&nbsp;
+<b class="nc">&nbsp;        val id = ctx.pathParam(&quot;userID&quot;).toInt()</b>
+<b class="nc">&nbsp;        val user = userDAO.getUserById(id)</b>
+<b class="nc">&nbsp;        if(user == null) { ctx.status(404).json(mapOf(&quot;message&quot; to &quot;User is not found&quot;))</b>
+&nbsp;        return
+&nbsp;        }
+<b class="nc">&nbsp;        val indicators =  healthIndicatorDAO.getHealthIndicatorsByUser(id)</b>
+<b class="nc">&nbsp;        if (indicators == null) {   ctx.status(404).json(mapOf(&quot;message&quot; to &quot;Not enough information for generating report&quot;))</b>
+&nbsp;            return
+&nbsp;        }
+<b class="nc">&nbsp;        var indicatormap = healthIndicatorDAO.nonNullIndicators(indicators)</b>
+<b class="nc">&nbsp;        val risks = healthRiskDAO.getPossibleHealthRisks(id)</b>
+<b class="nc">&nbsp;        val  diets = dietDAO.getDiet(risks)</b>
+<b class="nc">&nbsp;        ctx.status(200).json(mapOf(Pair(&quot;message&quot;, &quot;details retrieved succesfully&quot;),Pair(&quot;data&quot;, mapOf(Pair(&quot;user&quot;, user),Pair(&quot;indicators&quot;, indicatormap),Pair(&quot;diets&quot;, diets),Pair(&quot;risks&quot;, risks)))))</b>
 &nbsp;
 &nbsp;
+&nbsp;    }
 &nbsp;
-<b class="fc">&nbsp;data class User(var id: Int, var name: String, var email: String, var password: String, val role: String){</b>
 &nbsp;
 &nbsp;}
 </code>
@@ -105,7 +281,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-11-18 23:58</div>
+    <div style="float:right;">generated on 2024-12-29 00:50</div>
 </div>
 </body>
 </html>

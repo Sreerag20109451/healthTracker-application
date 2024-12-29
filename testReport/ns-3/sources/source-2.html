@@ -1,0 +1,299 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > JavalinConfig</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.agileSoftDev.config</a>
+</div>
+
+<h1>Coverage Summary for Class: JavalinConfig (org.agileSoftDev.config)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">JavalinConfig</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    82.6%
+  </span>
+  <span class="absValue">
+    (19/23)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    46.7%
+  </span>
+  <span class="absValue">
+    (14/30)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80.2%
+  </span>
+  <span class="absValue">
+    (73/91)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.config
+&nbsp;
+&nbsp;import io.javalin.Javalin
+&nbsp;import io.javalin.json.JavalinJackson
+&nbsp;import org.agileSoftDev.controller.*
+&nbsp;import org.agileSoftDev.utills.AuthenticationUtils.JWTutils
+&nbsp;import org.agileSoftDev.utills.AuthenticationUtils.jsonObjectMapper
+&nbsp;
+<b class="fc">&nbsp;class JavalinConfig {</b>
+<b class="fc">&nbsp;    private val controller = UserController()</b>
+<b class="fc">&nbsp;    private val jwtObj = JWTutils()</b>
+<b class="fc">&nbsp;    private val accessController = AuthorizationController()</b>
+<b class="fc">&nbsp;    private val authenticationController = AuthenticationController()</b>
+<b class="fc">&nbsp;    private val activityController = ActivityController()</b>
+<b class="fc">&nbsp;    private val healthIndicatorController = HealthIndicatorController()</b>
+<b class="fc">&nbsp;    private val healthRiskController = HealthRiskController()</b>
+<b class="fc">&nbsp;    private val dietController = DietController()</b>
+&nbsp;
+&nbsp;    //https://javalin.io/documentation#before-handlers - reference from Javalin documentation
+&nbsp;
+&nbsp;    fun startJavalinInstance(): Javalin {
+<b class="fc">&nbsp;        val app = Javalin.create {</b>
+<b class="fc">&nbsp;            it.jsonMapper(JavalinJackson(jsonObjectMapper()))</b>
+<b class="fc">&nbsp;            it.bundledPlugins.enableCors { cors -&gt;</b>
+<b class="fc">&nbsp;             cors.addRule{ crs -&gt;</b>
+<b class="fc">&nbsp;                    crs.allowHost(&quot;http://localhost:8080/&quot;,&quot;https://frontend-healthtracker-production.up.railway.app/&quot;)</b>
+<b class="fc">&nbsp;                    crs.allowCredentials = true</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;
+<b class="fc">&nbsp;        }.apply {</b>
+<b class="fc">&nbsp;        }.start(getRemoteAssignedPort())</b>
+<b class="fc">&nbsp;        registerRoutes(app)</b>
+<b class="fc">&nbsp;        return app</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    fun registerRoutes(app: Javalin) {
+&nbsp;        //Login and LogOut
+<b class="fc">&nbsp;        app.post(&quot;/api/logout&quot;, authenticationController::logout)</b>
+<b class="fc">&nbsp;        app.post(&quot;/api/login&quot;, authenticationController::login)</b>
+&nbsp;        //User API Endpoints
+&nbsp;        //No privilege
+<b class="fc">&nbsp;        app.post(&quot;/api/users&quot;, controller::createUser)</b>
+&nbsp;        //OnlyAdminPrivileges
+<b class="fc">&nbsp;        app.get(&quot;/api/users&quot;) { ctx -&gt;</b>
+<b class="fc">&nbsp;            println(&quot;its here&quot;)</b>
+<b class="fc">&nbsp;            if (jwtObj.verifyTokens(ctx)) {</b>
+<b class="fc">&nbsp;                println(&quot;JWT verified&quot;)</b>
+<b class="fc">&nbsp;                accessController.adminOnlyPrivilegeCheck(ctx, controller::getAllUsers)</b>
+&nbsp;            }
+<b class="fc">&nbsp;            else ctx.status(401).json(mapOf(&quot;message&quot; to &quot;Authentication error, invalid token!&quot;))</b>
+&nbsp;        }
+<b class="fc">&nbsp;        app.get(&quot;/api/users/{userID}/details&quot;) { ctx -&gt;</b>
+<b class="nc">&nbsp;            if (jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(ctx, controller::getDetails)</b>
+<b class="nc">&nbsp;            else ctx.status(401).json(mapOf(&quot;message&quot; to &quot;Authentication error, invalid token!&quot;))</b>
+&nbsp;        }
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        app.get(&quot;/api/users/email/{email}&quot;) { ctx -&gt;</b>
+<b class="nc">&nbsp;            if (jwtObj.verifyTokens(ctx)) accessController.adminOnlyPrivilegeCheck(ctx, controller::findUserByEmail)</b>
+<b class="nc">&nbsp;            else ctx.status(401).json(mapOf(&quot;message&quot; to &quot;Authentication error, invalid token!&quot;))</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        app.put(&quot;/api/users/{userID}&quot;) { ctx -&gt;</b>
+<b class="pc">&nbsp;            if (jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(ctx, controller::updateUser)</b>
+<b class="nc">&nbsp;            else ctx.status(401).json(mapOf(&quot;message&quot; to &quot;Authentication Error, invalid token&quot;))</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        //Admin and Same user privileges (Always verify token)
+<b class="fc">&nbsp;        app.get(&quot;/api/users/{userID}&quot;) { ctx -&gt;</b>
+<b class="pc">&nbsp;            if (jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(ctx, controller::getUserById)</b>
+<b class="nc">&nbsp;            else ctx.status(401).json(mapOf(&quot;message&quot; to &quot;Authentication Error, invalid token&quot;))</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        app.delete(&quot;/api/users/{userID}&quot;) { ctx -&gt;</b>
+<b class="pc">&nbsp;            if (jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(ctx, controller::deleteUser)</b>
+<b class="nc">&nbsp;            else ctx.status(401).json(mapOf(&quot;message&quot; to &quot;Authentication Error, invalid token&quot;))</b>
+&nbsp;        }
+&nbsp;        //ActivityEndpoints
+&nbsp;        //AdminOnlyPrivileges
+<b class="fc">&nbsp;        app.get(&quot;/api/activities&quot;) { ctx -&gt;</b>
+<b class="pc">&nbsp;            if (jwtObj.verifyTokens(ctx)) accessController.adminOnlyPrivilegeCheck(</b>
+<b class="fc">&nbsp;                ctx,</b>
+<b class="fc">&nbsp;                activityController::getAllActivities</b>
+&nbsp;            )
+<b class="nc">&nbsp;            else ctx.status(401).json(mapOf(&quot;message&quot; to &quot;Authentication error, invalid token!&quot;))</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        //AdminAndSameUserPrivilege
+&nbsp;
+&nbsp;        //Admin and Same user privilege
+<b class="fc">&nbsp;        app.post(&quot;/api/users/{userID}/activities&quot;) { ctx -&gt;</b>
+<b class="pc">&nbsp;            if (jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(</b>
+<b class="fc">&nbsp;                ctx,</b>
+<b class="fc">&nbsp;                activityController::addactivity</b>
+&nbsp;            )
+<b class="nc">&nbsp;            else ctx.status(401).json(mapOf(&quot;message&quot; to &quot;Authentication Error, invalid token&quot;))</b>
+&nbsp;        }
+<b class="fc">&nbsp;        app.get(&quot;api/users/{userID}/activities&quot;) { ctx -&gt;</b>
+<b class="pc">&nbsp;            if (jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(</b>
+<b class="fc">&nbsp;                ctx,</b>
+<b class="fc">&nbsp;                activityController::getActivityByUser</b>
+&nbsp;            )
+<b class="nc">&nbsp;            else ctx.status(401).json(mapOf(&quot;message&quot; to &quot;Authentication Error, invalid token&quot;))</b>
+&nbsp;        }
+<b class="fc">&nbsp;        app.delete(&quot;api/users/{userID}/activities/{actId}&quot;) { ctx -&gt;</b>
+<b class="pc">&nbsp;            if (jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(</b>
+<b class="fc">&nbsp;                ctx,</b>
+<b class="fc">&nbsp;                activityController::deleteActivityByUser</b>
+&nbsp;            )
+<b class="nc">&nbsp;            else ctx.status(401).json(mapOf(&quot;message&quot; to &quot;Authentication Error, invalid token&quot;))</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        //HealthIndicators
+&nbsp;
+&nbsp;        //AdminOnly
+&nbsp;
+&nbsp;
+&nbsp;        //AdminAndSameUserPrivilege
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        app.get(&quot;/api/users/{userID}/healthindicators&quot;) { ctx -&gt;</b>
+<b class="pc">&nbsp;            if (jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(</b>
+<b class="fc">&nbsp;                ctx,</b>
+<b class="fc">&nbsp;                healthIndicatorController::getHealthIndicatorsByUser</b>
+&nbsp;            )
+<b class="nc">&nbsp;            else ctx.status(401).json(mapOf(&quot;message&quot; to &quot;Authentication Error, invalid token&quot;))</b>
+&nbsp;
+&nbsp;        }
+<b class="fc">&nbsp;        app.post(&quot;/api/users/{userID}/healthindicators&quot;) { ctx -&gt;</b>
+<b class="pc">&nbsp;            if (jwtObj.verifyTokens(ctx)) accessController.adminOnlyPrivilegeCheck(</b>
+<b class="fc">&nbsp;                ctx,</b>
+<b class="fc">&nbsp;                healthIndicatorController::addIndicatorsforUser</b>
+&nbsp;            )
+<b class="nc">&nbsp;            else ctx.status(401).json(mapOf(&quot;message&quot; to &quot;Authentication Error, invalid token&quot;))</b>
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;        //Risks
+&nbsp;
+&nbsp;        //AdminAndSameUserPrivilege
+&nbsp;
+<b class="fc">&nbsp;        app.get(&quot;/api/users/{userID}/risks&quot;) { ctx -&gt;</b>
+<b class="pc">&nbsp;            if (jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(</b>
+<b class="fc">&nbsp;                ctx,</b>
+<b class="fc">&nbsp;                healthRiskController::getRisks</b>
+&nbsp;            )
+<b class="nc">&nbsp;            else ctx.status(401).json(mapOf(&quot;message&quot; to &quot;Authentication Error, invalid token&quot;))</b>
+&nbsp;        }
+&nbsp;
+&nbsp;
+&nbsp;        //Diets
+&nbsp;
+<b class="fc">&nbsp;        app.get(&quot;/api/users/{userID}/diets&quot;) { ctx -&gt;</b>
+<b class="pc">&nbsp;            if (jwtObj.verifyTokens(ctx)) accessController.adminAndSameUserPrivilegeCheck(</b>
+<b class="fc">&nbsp;                ctx,</b>
+<b class="fc">&nbsp;                dietController::suggestDiets</b>
+&nbsp;            )
+<b class="nc">&nbsp;            else ctx.status(401).json(mapOf(&quot;message&quot; to &quot;Authentication Error, invalid token&quot;))</b>
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;
+&nbsp;        //Errors and exceptions
+<b class="fc">&nbsp;        app.get(&quot;/*&quot;) { ctx -&gt;</b>
+<b class="nc">&nbsp;            ctx.status(404).json(mapOf(&quot;message&quot; to &quot;Path not found&quot;))</b>
+&nbsp;        }
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        app.error(500) { ctx -&gt;</b>
+<b class="nc">&nbsp;            ctx.status(500).json(mapOf(&quot;message &quot; to &quot;ServerError&quot;))</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private fun getRemoteAssignedPort(): Int {
+<b class="fc">&nbsp;        val remotePort = System.getenv(&quot;PORT&quot;)</b>
+<b class="pc">&nbsp;        return if (remotePort != null) {</b>
+<b class="nc">&nbsp;            Integer.parseInt(remotePort)</b>
+<b class="fc">&nbsp;        } else 8085</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-12-29 00:52</div>
+</div>
+</body>
+</html>

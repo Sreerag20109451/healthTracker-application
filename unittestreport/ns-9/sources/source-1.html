@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > Activities</title>
+  <title>Coverage Report > Bcryptutils</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -19,10 +19,10 @@
 <div class="breadCrumbs">
 Current scope:     <a href="../../index.html">all classes</a>
     <span class="separator">|</span>
-    <a href="../index.html">org.agileSoftDev.utills.Enums</a>
+    <a href="../index.html">org.agileSoftDev.utills.AuthenticationUtils</a>
 </div>
 
-<h1>Coverage Summary for Class: Activities (org.agileSoftDev.utills.Enums)</h1>
+<h1>Coverage Summary for Class: Bcryptutils (org.agileSoftDev.utills.AuthenticationUtils)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -41,7 +41,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">Activities</td>
+  <td class="name">Bcryptutils</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -55,7 +55,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (2/2)
+    (3/3)
   </span>
 </td>
 <td class="coverageStat">
@@ -63,7 +63,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (5/5)
+    (4/4)
   </span>
 </td>
 </tr>
@@ -75,30 +75,23 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.utills.Enums
+<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.utills.AuthenticationUtils
 &nbsp;
-&nbsp;enum class UserRoles(var value: String) {
+&nbsp;import at.favre.lib.crypto.bcrypt.BCrypt
 &nbsp;
-&nbsp;    ADMIN(&quot;admin&quot;),
-&nbsp;    USER(&quot;user&quot;)
-&nbsp;}
-<b class="fc">&nbsp;enum class Activities(var value: String) {</b>
+<b class="fc">&nbsp;class Bcryptutils {</b>
 &nbsp;
-<b class="fc">&nbsp;    RUNNING(&quot;running&quot;),</b>
-<b class="fc">&nbsp;    WALKING(&quot;walking&quot;),</b>
-<b class="fc">&nbsp;    JUMPROPING(&quot;jump roping&quot;),</b>
-<b class="fc">&nbsp;    SPRINTING(&quot;sprinting&quot;),</b>
+&nbsp;    //https://wiki.yowu.dev/en/Knowledge-base/Kotlin/kotlin-and-bcrypt-a-better-alternative-to-simple-hashing - Bcrypt reference
 &nbsp;
-&nbsp;}
-&nbsp;fun checkRole(role : String): Boolean{
-&nbsp;    var validRoles = UserRoles.entries.map{it -&gt; it.value}
-&nbsp;    println(validRoles)
-&nbsp;    return validRoles.contains(role.lowercase())
-&nbsp;}
+&nbsp;    fun hashPassword(password: String): String {
 &nbsp;
-&nbsp;fun checkActivities(activitYDes: String): Boolean{
-&nbsp;    var validActivities = Activities.entries.map{it -&gt; it.value}
-&nbsp;    return validActivities.contains(activitYDes.lowercase())
+<b class="fc">&nbsp;        return BCrypt.withDefaults().hashToString(12, password.toCharArray())</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    fun verifyPassword(password: String, hash: String): Boolean {
+<b class="fc">&nbsp;        val isVerified =  BCrypt.verifyer().verify(password.toCharArray(), hash)</b>
+<b class="fc">&nbsp;        return  isVerified.verified</b>
+&nbsp;    }
 &nbsp;}
 </code>
 </pre>
@@ -123,7 +116,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-11-18 23:58</div>
+    <div style="float:right;">generated on 2024-12-29 00:50</div>
 </div>
 </body>
 </html>

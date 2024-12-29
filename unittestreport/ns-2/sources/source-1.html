@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > DBConfig</title>
+  <title>Coverage Report > AppKt</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -19,10 +19,10 @@
 <div class="breadCrumbs">
 Current scope:     <a href="../../index.html">all classes</a>
     <span class="separator">|</span>
-    <a href="../index.html">org.agileSoftDev.config</a>
+    <a href="../index.html">org.agileSoftDev</a>
 </div>
 
-<h1>Coverage Summary for Class: DBConfig (org.agileSoftDev.config)</h1>
+<h1>Coverage Summary for Class: AppKt (org.agileSoftDev)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -41,29 +41,29 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">DBConfig</td>
+  <td class="name">AppKt</td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    0%
   </span>
   <span class="absValue">
-    (1/1)
+    (0/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    0%
   </span>
   <span class="absValue">
-    (2/2)
+    (0/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    91.7%
+    0%
   </span>
   <span class="absValue">
-    (11/12)
+    (0/2)
   </span>
 </td>
 </tr>
@@ -75,44 +75,16 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.config
+<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev
 &nbsp;
-&nbsp;import io.github.oshai.kotlinlogging.KotlinLogging
-&nbsp;import org.jetbrains.exposed.sql.Database
-&nbsp;import org.postgresql.util.PSQLException
+&nbsp;import org.agileSoftDev.config.DBConfig
+&nbsp;import org.agileSoftDev.config.JavalinConfig
 &nbsp;
-<b class="fc">&nbsp;class DBConfig {</b>
+&nbsp;fun main(args : Array&lt;String&gt;) {
 &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;    private  lateinit var dbConfig: Database
-&nbsp;
-<b class="fc">&nbsp;    private val logger = KotlinLogging.logger{}</b>
-&nbsp;
-&nbsp;    fun getConnection(): Database{
-&nbsp;
-<b class="fc">&nbsp;        val PGHOST = &quot;dpg-cs76pci3esus73chaj8g-a.frankfurt-postgres.render.com&quot;</b>
-<b class="fc">&nbsp;        val PGPORT = &quot;5432&quot;</b>
-<b class="fc">&nbsp;        val PGUSER = &quot;healthtrackerdb_aijc_user&quot;</b>
-<b class="fc">&nbsp;        val PGPASSWORD = &quot;V2Vh1144KcHN9TTMJv0dddfjJpVAQSY6&quot;</b>
-<b class="fc">&nbsp;        val PGDATABASE = &quot;healthtrackerdb_aijc&quot;</b>
-&nbsp;
-<b class="fc">&nbsp;        val dbUrl =&quot;jdbc:postgresql://$PGHOST:$PGPORT/$PGDATABASE&quot;</b>
-&nbsp;
-&nbsp;        try {
-<b class="fc">&nbsp;            logger.info { &quot;Connecting to db: $dbUrl&quot; }</b>
-<b class="fc">&nbsp;            dbConfig = Database.connect(dbUrl, driver = &quot;org.h2.Driver&quot;, user = PGUSER, password = PGPASSWORD)</b>
-&nbsp;        }
-&nbsp;        catch (e : PSQLException) {
-<b class="nc">&nbsp;            logger.error { &quot;Error connecting to database: $e&quot; }</b>
-&nbsp;        }
-&nbsp;
-<b class="fc">&nbsp;        return dbConfig</b>
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;    }
+&nbsp;//bjhbjk
+<b class="nc">&nbsp;    DBConfig().getConnection()</b>
+<b class="nc">&nbsp;    JavalinConfig().startJavalinInstance()</b>
 &nbsp;
 &nbsp;
 &nbsp;}
@@ -139,7 +111,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-11-18 23:58</div>
+    <div style="float:right;">generated on 2024-12-29 00:50</div>
 </div>
 </body>
 </html>

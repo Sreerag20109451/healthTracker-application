@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > HealthriskfeederKt</title>
+  <title>Coverage Report > Activities</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -19,10 +19,10 @@
 <div class="breadCrumbs">
 Current scope:     <a href="../../index.html">all classes</a>
     <span class="separator">|</span>
-    <a href="../index.html">org.agileSoftDev.utills.Healthrisks</a>
+    <a href="../index.html">org.agileSoftDev.utills.Enums</a>
 </div>
 
-<h1>Coverage Summary for Class: HealthriskfeederKt (org.agileSoftDev.utills.Healthrisks)</h1>
+<h1>Coverage Summary for Class: Activities (org.agileSoftDev.utills.Enums)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -41,7 +41,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">HealthriskfeederKt</td>
+  <td class="name">Activities</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -52,18 +52,18 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    90%
+    100%
   </span>
   <span class="absValue">
-    (9/10)
+    (2/2)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    86.4%
+    100%
   </span>
   <span class="absValue">
-    (19/22)
+    (5/5)
   </span>
 </td>
 </tr>
@@ -75,80 +75,30 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.utills.Healthrisks
+<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.utills.Enums
 &nbsp;
-&nbsp;import org.agileSoftDev.config.DBConfig
-&nbsp;import org.agileSoftDev.domain.Diet
-&nbsp;import org.agileSoftDev.domain.HealthDepartment
-&nbsp;import org.agileSoftDev.domain.HealthRisk
-&nbsp;import org.agileSoftDev.domain.db.Diets
-&nbsp;import org.agileSoftDev.domain.db.HealthDepartments
-&nbsp;import org.agileSoftDev.domain.db.HealthRisks
-&nbsp;import org.jetbrains.exposed.sql.insert
-&nbsp;import org.jetbrains.exposed.sql.transactions.transaction
+&nbsp;enum class UserRoles(var value: String) {
 &nbsp;
-&nbsp;fun healthriskAdd(healthRisk: HealthRisk){
-<b class="fc">&nbsp;    transaction {</b>
-<b class="fc">&nbsp;        HealthRisks.insert {</b>
-<b class="fc">&nbsp;            it[risk] = healthRisk.risk</b>
-<b class="fc">&nbsp;            it[bmi] = healthRisk.bmi</b>
-<b class="fc">&nbsp;            it[hdl] = healthRisk.hdl</b>
-<b class="fc">&nbsp;            it[hdl]=healthRisk.hdl</b>
-<b class="fc">&nbsp;            it[ldl] = healthRisk.ldl</b>
-<b class="fc">&nbsp;            it[alt]= healthRisk.alt</b>
-<b class="fc">&nbsp;            it[ast]=healthRisk.ast</b>
-<b class="fc">&nbsp;            it[gfr] = healthRisk.gfr</b>
-<b class="fc">&nbsp;            it[dept] = healthRisk.dept</b>
-<b class="fc">&nbsp;            it[dietid] = healthRisk.dietid</b>
-&nbsp;        }
-&nbsp;    }
+&nbsp;    ADMIN(&quot;admin&quot;),
+&nbsp;    USER(&quot;user&quot;)
+&nbsp;}
+<b class="fc">&nbsp;enum class Activities(var value: String) {</b>
 &nbsp;
+<b class="fc">&nbsp;    RUNNING(&quot;running&quot;),</b>
+<b class="fc">&nbsp;    WALKING(&quot;walking&quot;),</b>
+<b class="fc">&nbsp;    JUMPROPING(&quot;jump roping&quot;),</b>
+<b class="fc">&nbsp;    SPRINTING(&quot;sprinting&quot;),</b>
 &nbsp;
 &nbsp;}
-&nbsp;
-&nbsp;fun DietsAdd(diet: Diet){
-&nbsp;
-<b class="fc">&nbsp;    transaction {</b>
-<b class="fc">&nbsp;        Diets.insert {</b>
-<b class="fc">&nbsp;            it[dietname] = diet.dietname</b>
-<b class="fc">&nbsp;            it[content] = diet.content</b>
-&nbsp;        }
-&nbsp;    }
-&nbsp;
+&nbsp;fun checkRole(role : String): Boolean{
+&nbsp;    var validRoles = UserRoles.entries.map{it -&gt; it.value}
+&nbsp;    println(validRoles)
+&nbsp;    return validRoles.contains(role.lowercase())
 &nbsp;}
 &nbsp;
-&nbsp;fun deptAdd (department: HealthDepartment){
-&nbsp;
-<b class="fc">&nbsp;    transaction {</b>
-<b class="fc">&nbsp;        HealthDepartments.insert {</b>
-<b class="fc">&nbsp;            it[dept] = department.dept</b>
-&nbsp;        }
-&nbsp;    }
-&nbsp;
-&nbsp;}
-&nbsp;fun main() {
-&nbsp;
-<b class="nc">&nbsp;    DBConfig().getConnection()</b>
-&nbsp;//
-<b class="nc">&nbsp;    val Obesity = HealthRisk(riskid = 1, risk = &quot;Obesity&quot;, bmi = 30.00, boxygen = null, hdl = 50, ldl = 106, alt = 40 , ast = 40, gfr = null, dept = &quot;Bariatrics&quot;, dietid = 1 )</b>
-<b class="nc">&nbsp;    val HeartDiseases = HealthRisk(riskid = 2, risk = &quot;Heart Diseases&quot;, boxygen = null, bmi = 25.5, hdl = 59, ldl = 100, alt = 36, ast = 36, gfr =null, dept = &quot;Cardiology&quot;, dietid = 1 )</b>
-&nbsp;//    val Bariatrics = HealthDepartment(deptid = 1, dept = &quot;Bariatrics&quot;)
-&nbsp;//    val Cardiology = HealthDepartment(deptid = 2, dept = &quot;Cardiology&quot;)
-&nbsp;//    val Nephrology = HealthDepartment(deptid = 3, dept = &quot;Nephrology&quot;)
-&nbsp;//    val Gastroenterology = HealthDepartment(deptid = 4, dept = &quot;Gastroenterology&quot;)
-&nbsp;////
-&nbsp;//    val lowFatdiet = Diet(1, &quot;Low fat diet&quot;, content = &quot;Fruits, Vegetables, Fibres, Nuts&quot;)
-&nbsp;
-&nbsp;
-&nbsp;//    deptAdd(Bariatrics)
-&nbsp;//    deptAdd(Cardiology)
-&nbsp;//    deptAdd(Nephrology)
-&nbsp;//    deptAdd(Gastroenterology)
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+&nbsp;fun checkActivities(activitYDes: String): Boolean{
+&nbsp;    var validActivities = Activities.entries.map{it -&gt; it.value}
+&nbsp;    return validActivities.contains(activitYDes.lowercase())
 &nbsp;}
 </code>
 </pre>
@@ -173,7 +123,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-11-18 23:58</div>
+    <div style="float:right;">generated on 2024-12-29 00:50</div>
 </div>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > HealthRiskDAO</title>
+  <title>Coverage Report > HealthIndicators</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -19,10 +19,10 @@
 <div class="breadCrumbs">
 Current scope:     <a href="../../index.html">all classes</a>
     <span class="separator">|</span>
-    <a href="../index.html">org.agileSoftDev.domain.repository</a>
+    <a href="../index.html">org.agileSoftDev.domain.db</a>
 </div>
 
-<h1>Coverage Summary for Class: HealthRiskDAO (org.agileSoftDev.domain.repository)</h1>
+<h1>Coverage Summary for Class: HealthIndicators (org.agileSoftDev.domain.db)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -37,15 +37,11 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 <th class="coverageStat 
 ">
-  Branch, %
-</th>
-<th class="coverageStat 
-">
   Line, %
 </th>
 </tr>
 <tr>
-  <td class="name">HealthRiskDAO</td>
+  <td class="name">HealthIndicators</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -56,26 +52,18 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    81.8%
+    100%
   </span>
   <span class="absValue">
-    (9/11)
+    (13/13)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    73.3%
+    100%
   </span>
   <span class="absValue">
-    (11/15)
-  </span>
-</td>
-<td class="coverageStat">
-  <span class="percent">
-    86.7%
-  </span>
-  <span class="absValue">
-    (26/30)
+    (13/13)
   </span>
 </td>
 </tr>
@@ -87,65 +75,29 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.domain.repository
+<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.domain.db
 &nbsp;
-&nbsp;import org.agileSoftDev.domain.Diet
-&nbsp;import org.agileSoftDev.domain.HealthIndicator
-&nbsp;import org.agileSoftDev.domain.db.Diets
-&nbsp;import org.agileSoftDev.domain.db.HealthRisks
-&nbsp;import org.agileSoftDev.utills.mapToDiet
-&nbsp;import org.agileSoftDev.utills.selectDistinct
-&nbsp;import org.jetbrains.exposed.sql.selectAll
-&nbsp;import org.jetbrains.exposed.sql.transactions.transaction
-&nbsp;
-<b class="fc">&nbsp;class HealthRiskDAO {</b>
-<b class="fc">&nbsp;    private val healthIndicatorDAO = HealthIndicatorDAO()</b>
+&nbsp;import org.jetbrains.exposed.sql.ReferenceOption
+&nbsp;import org.jetbrains.exposed.sql.Table
 &nbsp;
 &nbsp;
-&nbsp;    fun getPossibleHealthRisks(userID: Int): ArrayList&lt;String&gt;? {
-<b class="fc">&nbsp;        var risks: ArrayList&lt;String&gt; = arrayListOf()</b>
-<b class="fc">&nbsp;        var healthIndicators: HealthIndicator? = healthIndicatorDAO.getHealthIndicatorsByUser(userID)</b>
-<b class="fc">&nbsp;        if (healthIndicators == null) return null</b>
-<b class="fc">&nbsp;        var indicatorMap: MutableMap&lt;String, Int&gt; = healthIndicatorDAO.nonNullIndicators(healthIndicators!!)</b>
-<b class="fc">&nbsp;        var greaterIndicator = arrayListOf(&quot;boxygen&quot;, &quot;hdl&quot;, &quot;gfr&quot;)</b>
-<b class="fc">&nbsp;        indicatorMap.forEach { (key, value) -&gt;</b>
-<b class="fc">&nbsp;            if (key in greaterIndicator) {</b>
-&nbsp;                //The idea for the  structure of the below transaction was obtained while debugging(The block of code generated was incorrect)
-<b class="fc">&nbsp;                transaction {</b>
-<b class="pc">&nbsp;                    val query = when (key) {</b>
+<b class="fc">&nbsp;    object HealthIndicators : Table(&quot;HealthIndicators&quot;) {</b>
 &nbsp;
-<b class="nc">&nbsp;                        &quot;boxygen&quot; -&gt; HealthRisks.selectAll().where { HealthRisks.boxygen greater  value }</b>
-<b class="fc">&nbsp;                        &quot;hdl&quot; -&gt; HealthRisks.selectAll().where { HealthRisks.hdl greater value }</b>
-<b class="fc">&nbsp;                        &quot;gfr&quot; -&gt; HealthRisks.selectAll().where { HealthRisks.gfr greater value }</b>
-<b class="nc">&nbsp;                        else -&gt; null</b>
-&nbsp;                    }
-<b class="pc">&nbsp;                    query?.map {</b>
-<b class="fc">&nbsp;                        var risk = it[HealthRisks.risk].toString()</b>
-<b class="fc">&nbsp;                        risks.add(risk)</b>
-&nbsp;                    }
-&nbsp;                }
-&nbsp;            } else {
-<b class="fc">&nbsp;                transaction {</b>
-<b class="pc">&nbsp;                    val query = when (key) {</b>
+<b class="fc">&nbsp;        val indicatorid = integer(&quot;indicatorid&quot;).autoIncrement()</b>
+<b class="fc">&nbsp;        val userid = integer(&quot;userid&quot;).references(Users.id,onDelete = ReferenceOption.CASCADE)</b>
+<b class="fc">&nbsp;        var age = integer(&quot;age&quot;)</b>
+<b class="fc">&nbsp;        var height = integer(&quot;height&quot;).nullable()</b>
+<b class="fc">&nbsp;        var weight = integer(&quot;weight&quot;).nullable()</b>
+<b class="fc">&nbsp;        var boxygen = integer(&quot;boxygen&quot;).nullable()</b>
+<b class="fc">&nbsp;        var hdl = integer(&quot;hdl&quot;).nullable()</b>
+<b class="fc">&nbsp;        var ldl = integer(&quot;ldl&quot;).nullable()</b>
+<b class="fc">&nbsp;        var alt = integer(&quot;alt&quot;).nullable()</b>
+<b class="fc">&nbsp;        var ast =  integer(&quot;ast&quot;).nullable()</b>
+<b class="fc">&nbsp;        var gfr = integer(&quot;gfr&quot;).nullable()</b>
 &nbsp;
-<b class="fc">&nbsp;                        &quot;ldl&quot; -&gt; HealthRisks.selectAll().where { HealthRisks.ldl less value }</b>
-<b class="fc">&nbsp;                        &quot;alt&quot; -&gt; HealthRisks.selectAll().where { HealthRisks.alt less value }</b>
-<b class="fc">&nbsp;                        &quot;ast&quot; -&gt; HealthRisks.selectAll().where { HealthRisks.ast less  value }</b>
-<b class="nc">&nbsp;                        &quot;bmi&quot; -&gt; HealthRisks.selectAll().where { HealthRisks.bmi less  value.toDouble() }</b>
-<b class="nc">&nbsp;                        else -&gt; null</b>
-&nbsp;                    }
-<b class="pc">&nbsp;                    query?.map {</b>
-<b class="fc">&nbsp;                        var risk = it[HealthRisks.risk].toString()</b>
-<b class="fc">&nbsp;                        risks.add(risk)</b>
-&nbsp;                    }
-&nbsp;                }
-&nbsp;            }
-<b class="fc">&nbsp;        }</b>
-<b class="fc">&nbsp;        return  selectDistinct(risks)</b>
+<b class="fc">&nbsp;        override val primaryKey: PrimaryKey = PrimaryKey(indicatorid)</b>
+&nbsp;
 &nbsp;    }
-&nbsp;
-&nbsp;
-&nbsp;}
 </code>
 </pre>
 </div>
@@ -169,7 +121,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-11-18 23:58</div>
+    <div style="float:right;">generated on 2024-12-29 00:50</div>
 </div>
 </body>
 </html>

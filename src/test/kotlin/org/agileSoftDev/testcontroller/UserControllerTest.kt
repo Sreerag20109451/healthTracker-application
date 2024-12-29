@@ -109,11 +109,11 @@ class UserControllerTest {
 
     @Nested
     inner class UserAddOperations{
-
+//
 //        @Test
 //        fun `add users successfully and get a 200 response coder` (){
 //
-//            var body = "{\"name\":\"testUser\",\"email\":\"myEmail12@abc.com\", \"password\":\"abc\",\"role\":\"user\"}"
+//            var body = "{\"name\":\"testUser\",\"email\":\"hotmail27345@abc.com\", \"password\":\"abc\",\"role\":\"user\"}"
 //            var resp = Unirest.post(domain+"/api/users").body(body).asString()
 //            assertEquals(201,resp.status)
 //        }
@@ -160,14 +160,14 @@ class UserControllerTest {
 
     @Nested
     inner class UserDeletionOperations {
-
+//
 //        @Test
 //        fun `Delete users successfully and get a 200 response code with an admin user`() {
 //
 //            var map = Login("healthAdmin@hospital.com", "admin") //Admin User
 //            val token = map["token"]
 //            var sessionId = map["sessionId"]
-//            var response = Unirest.delete(domain + "/api/users/36").header("Authorization", "Bearer " + token).header("Sessionid",sessionId).asString()
+//            var response = Unirest.delete(domain + "/api/users/44").header("Authorization", "Bearer " + token).header("Sessionid",sessionId).asString()
 //            assertEquals(200, response.status)
 //
 //        }

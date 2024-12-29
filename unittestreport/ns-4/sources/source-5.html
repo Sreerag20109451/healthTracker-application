@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > HealthRisk</title>
+  <title>Coverage Report > HealthIndicatorController</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -19,21 +19,22 @@
 <div class="breadCrumbs">
 Current scope:     <a href="../../index.html">all classes</a>
     <span class="separator">|</span>
-    <a href="../index.html">org.agileSoftDev.domain</a>
+    <a href="../index.html">org.agileSoftDev.controller</a>
 </div>
 
-<h1>Coverage Summary for Class: HealthRisk (org.agileSoftDev.domain)</h1>
+<h1>Coverage Summary for Class: HealthIndicatorController (org.agileSoftDev.controller)</h1>
 
 <table class="coverageStats">
+
 <tr>
   <th class="name">Class</th>
 <th class="coverageStat 
 ">
-  Class, %
+  Method, %
 </th>
 <th class="coverageStat 
 ">
-  Method, %
+  Branch, %
 </th>
 <th class="coverageStat 
 ">
@@ -41,33 +42,78 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">HealthRisk</td>
+  <td class="name">HealthIndicatorController</td>
 <td class="coverageStat">
   <span class="percent">
     100%
   </span>
   <span class="absValue">
-    (1/1)
+    (3/3)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    66.7%
   </span>
   <span class="absValue">
-    (1/1)
+    (4/6)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    90%
   </span>
   <span class="absValue">
-    (2/2)
+    (18/20)
   </span>
 </td>
 </tr>
-
+  <tr>
+    <td class="name">HealthIndicatorController$addIndicatorsforUser$$inlined$readValue$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (4/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90.5%
+  </span>
+  <span class="absValue">
+    (19/21)
+  </span>
+</td>
+</tr>
 </table>
 
 <br/>
@@ -75,12 +121,54 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.domain
+<code class="sourceCode" id="sourceCode">&nbsp;package org.agileSoftDev.controller
 &nbsp;
+&nbsp;import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+&nbsp;import com.fasterxml.jackson.module.kotlin.readValue
+&nbsp;import io.javalin.http.Context
+&nbsp;import org.agileSoftDev.domain.HealthIndicator
+&nbsp;import org.agileSoftDev.domain.repository.HealthIndicatorDAO
+&nbsp;import org.agileSoftDev.domain.repository.UserDAO
+&nbsp;import org.postgresql.util.PSQLException
 &nbsp;
-<b class="fc">&nbsp;data class HealthRisk (</b>
-<b class="fc">&nbsp;    var riskid: Int, var risk : String, var bmi : Double?, var boxygen : Int?,  var hdl : Int?, var ldl : Int?, var alt: Int?, var ast: Int?, var gfr : Int?, var dept : String, var  dietid : Int</b>
-&nbsp;)
+<b class="fc">&nbsp;class HealthIndicatorController {</b>
+<b class="fc">&nbsp;    private var userDAO = UserDAO()</b>
+<b class="fc">&nbsp;    private val authorizationController = AuthorizationController()</b>
+<b class="fc">&nbsp;    private  val healthIndicatorDAO =  HealthIndicatorDAO()</b>
+&nbsp;    fun addIndicatorsforUser(ctx: Context) {
+&nbsp;     try {
+<b class="fc">&nbsp;         var mapper = jacksonObjectMapper()</b>
+&nbsp;
+<b class="fc">&nbsp;         val healthIndicator: HealthIndicator = mapper.readValue&lt;HealthIndicator&gt;(ctx.body())</b>
+<b class="fc">&nbsp;         var userID = ctx.pathParam(&quot;userID&quot;).toInt()</b>
+<b class="fc">&nbsp;         healthIndicatorDAO.deleteIndicatorsForUser(userID)</b>
+<b class="fc">&nbsp;         var user = userDAO.getUserById(userID)</b>
+<b class="fc">&nbsp;         if (user == null) {</b>
+<b class="fc">&nbsp;             ctx.status(404).json(mapOf(Pair(&quot;message&quot;, &quot;User not found&quot;)))</b>
+&nbsp;         } else {
+<b class="fc">&nbsp;             healthIndicatorDAO.addHealthIndicatorByUser(userID, healthIndicator)</b>
+<b class="fc">&nbsp;             ctx.status(201).json(mapOf(Pair(&quot;message&quot;, &quot;Healthindicators added&quot;)))</b>
+&nbsp;         }
+&nbsp;     }
+&nbsp;     catch (e :PSQLException){
+&nbsp;
+<b class="nc">&nbsp;         ctx.status(500).json(mapOf(Pair(&quot;message&quot;, &quot;Error while adding health indicators&quot;)))</b>
+&nbsp;     }
+&nbsp;
+&nbsp;    }
+&nbsp;    fun getHealthIndicatorsByUser(ctx: Context) {
+<b class="fc">&nbsp;        var userID = ctx.pathParam(&quot;userID&quot;).toInt()</b>
+<b class="pc">&nbsp;        if(userDAO.getUserById(userID) == null) {</b>
+<b class="nc">&nbsp;            ctx.status(404).result(&quot;User not found&quot;)</b>
+&nbsp;            return
+&nbsp;        }
+<b class="fc">&nbsp;        var healthIndicators  = healthIndicatorDAO.getHealthIndicatorsByUser(userID)</b>
+<b class="pc">&nbsp;        if(healthIndicators == null) ctx.status(200).json(mapOf(Pair(&quot;message&quot;,&quot;no indicators&quot;),Pair(&quot;data&quot;, healthIndicators)))</b>
+<b class="fc">&nbsp;        else ctx.status(200).json(mapOf(Pair(&quot;message&quot;,&quot;indicators retrieved&quot;),Pair(&quot;data&quot;, healthIndicators)))</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;}
 </code>
 </pre>
 </div>
@@ -104,7 +192,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-11-18 23:58</div>
+    <div style="float:right;">generated on 2024-12-29 00:50</div>
 </div>
 </body>
 </html>
